@@ -6,5 +6,6 @@
     "/path3",
     "/path4"
   ],
-  "showHidden": false
+  "showHidden": false,
+  "Theme": "light"
 }

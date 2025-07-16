@@ -115,6 +115,15 @@ void ConfigManager::setDefaultPath(const std::string &path) {
 void ConfigManager::setShowHidden(const bool &val) {
     showHidden=val;
 }
+
+void ConfigManager::setTheme(const std::string &theme) {
+    Theme=theme;
+}
+
+std::string ConfigManager::getTheme() const {
+    return Theme;
+}
+
 //读取默认配置并输出
 void test01() {
     ConfigManager manager;

@@ -25,11 +25,17 @@ public:
     //设置是否展示隐藏文件 默认为true
     void setShowHidden(const bool &val);
 
+    // 拓展功能
+    // 其他配置项：主题设置、视图模式、快捷键映射等
+    void setTheme(const std::string& theme);
+    std::string getTheme() const;
+
 private:
     std::string defaultPath;
     std::vector<std::string> recentPaths;
     bool showHidden=true;
     nlohmann::json Config;
+    std::string Theme;
 };
 //测试用例
 void test01();
