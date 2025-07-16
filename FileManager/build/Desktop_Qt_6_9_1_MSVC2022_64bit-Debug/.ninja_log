@@ -1,9 +1,0 @@
-# ninja log v6
-25	830	7743729769612726	FileManager_autogen/timestamp	77a8bc83892f017e
-25	830	7743729769612726	FileManager_autogen/mocs_compilation.cpp	77a8bc83892f017e
-25	830	7743729769612726	D:/Workspace/TuringNinth/FileManager/FileManager/build/Desktop_Qt_6_9_1_MSVC2022_64bit-Debug/FileManager_autogen/timestamp	77a8bc83892f017e
-25	830	7743729769612726	D:/Workspace/TuringNinth/FileManager/FileManager/build/Desktop_Qt_6_9_1_MSVC2022_64bit-Debug/FileManager_autogen/mocs_compilation.cpp	77a8bc83892f017e
-834	2302	7743729770628903	CMakeFiles/FileManager.dir/FileManager_autogen/mocs_compilation.cpp.obj	a90f4e353999602
-900	2304	7743729771282737	CMakeFiles/FileManager.dir/main.cpp.obj	a7b44e0c30b5eab7
-912	2309	7743729771397832	CMakeFiles/FileManager.dir/mainwindow.cpp.obj	9355fd0215263c56
-2309	3258	7743729785379082	FileManager.exe	ae2220200febbade
