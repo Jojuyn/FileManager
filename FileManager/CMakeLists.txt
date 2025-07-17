@@ -11,7 +11,8 @@ qt_add_executable(FileManager
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-    Menu.h
+    ExceptionHandler.cpp
+    ExceptionHandler.h
 )
 
 target_link_libraries(FileManager
