@@ -3,7 +3,21 @@
 
 #include <QMainWindow>
 #include <QFileSystemModel>
-#include "filemanager.h"
+#include <QWidget>
+#include <QApplication>
+#include <QMainWindow>
+#include <QTreeView>
+#include <QListView>
+#include <QTableView>
+#include <QSplitter>
+#include <QToolBar>
+#include <QStatusBar>
+#include <QLineEdit>
+#include <QAction>
+#include <QTabWidget>
+#include <QLabel>
+#include <QFileSystemModel>
+#include <QPointer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
