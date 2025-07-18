@@ -32,7 +32,7 @@ public:
     QPushButton *pasteBtn;
     QPushButton *deleteBtn;
     QTextBrowser *textBrowser;
-    QPushButton *pushButton;
+    QPushButton *selectBtn;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -72,9 +72,9 @@ public:
         textBrowser = new QTextBrowser(centralwidget);
         textBrowser->setObjectName("textBrowser");
         textBrowser->setGeometry(QRect(390, 30, 221, 21));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(640, 30, 81, 21));
+        selectBtn = new QPushButton(centralwidget);
+        selectBtn->setObjectName("selectBtn");
+        selectBtn->setGeometry(QRect(640, 30, 81, 21));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -104,7 +104,7 @@ public:
 "li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Microsoft YaHei UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'SimSun';\">\346\226\207\344\273\266\344\275\215\347\275\256: </span></p></body></html>", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "\351\200\211\346\213\251\346\226\207\344\273\266", nullptr));
+        selectBtn->setText(QCoreApplication::translate("MainWindow", "\351\200\211\346\213\251\346\226\207\344\273\266", nullptr));
     } // retranslateUi
 
 };

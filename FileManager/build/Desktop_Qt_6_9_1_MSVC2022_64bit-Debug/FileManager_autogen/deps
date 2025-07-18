@@ -4,7 +4,6 @@ FileManager_autogen/timestamp: \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/QFileInfo \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/QMap \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/QObject \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/QPointer \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/QString \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/QVariant \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/QVariantMap \
@@ -15,8 +14,6 @@ FileManager_autogen/timestamp: \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/q20type_traits.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/q20utility.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/q23utility.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qabstracteventdispatcher.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qabstractitemmodel.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qalgorithms.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qanystringview.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qarraydata.h \
@@ -26,7 +23,6 @@ FileManager_autogen/timestamp: \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qatomic.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qatomic_cxx11.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qbasicatomic.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qbasictimer.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qbindingstorage.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qbytearray.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qbytearrayalgorithms.h \
@@ -44,19 +40,11 @@ FileManager_autogen/timestamp: \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qcontainerinfo.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qcontainertools_impl.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qcontiguouscache.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qcoreapplication.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qcoreapplication_platform.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qcoreevent.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qdarwinhelpers.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qdatastream.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qdatetime.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qdeadlinetimer.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qdebug.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qdir.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qdirlisting.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qelapsedtimer.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qendian.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qeventloop.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qexceptionhandling.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qfile.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qfiledevice.h \
@@ -73,7 +61,6 @@ FileManager_autogen/timestamp: \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qhashfunctions.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qiodevice.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qiodevicebase.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qitemselectionmodel.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qiterable.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qiterator.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qlatin1stringview.h \
@@ -89,7 +76,6 @@ FileManager_autogen/timestamp: \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qmetatype.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qminmax.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qnamespace.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qnativeinterface.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qnumeric.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qobject.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qobject_impl.h \
@@ -98,11 +84,9 @@ FileManager_autogen/timestamp: \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qoverload.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qpair.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qpoint.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qpointer.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qprocessordetection.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qrect.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qrefcount.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qregularexpression.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qscopedpointer.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qscopeguard.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qset.h \
@@ -150,7 +134,6 @@ FileManager_autogen/timestamp: \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qtversionchecks.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qtypeinfo.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qtypes.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qurl.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qutf8stringview.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qvariant.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qvariantmap.h \
@@ -158,80 +141,36 @@ FileManager_autogen/timestamp: \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qversiontagging.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qxptype_traits.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtCore/qyieldcpu.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/QAction \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/QFileSystemModel \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qaction.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qbitmap.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qbrush.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qcolor.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qcursor.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qfilesystemmodel.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qfont.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qfontinfo.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qfontmetrics.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qfontvariableaxis.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qguiapplication.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qguiapplication_platform.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qicon.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qimage.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qinputmethod.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qkeysequence.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qpaintdevice.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qpalette.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qpen.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qpicture.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qpixelformat.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qpixmap.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qpolygon.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qregion.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qrgb.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qrgba64.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qtextcursor.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qtextdocument.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qtextformat.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qtextoption.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qtgui-config.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qtguiexports.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qtguiglobal.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qtransform.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qvalidator.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qwindowdefs.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtGui/qwindowdefs_win.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/QApplication \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/QLabel \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/QLineEdit \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/QListView \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/QMainWindow \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/QSplitter \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/QStatusBar \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/QTabWidget \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/QTableView \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/QToolBar \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/QTreeView \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/QWidget \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qabstractitemdelegate.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qabstractitemview.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qabstractscrollarea.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qabstractslider.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qabstractspinbox.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qapplication.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qframe.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qlabel.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qlineedit.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qlistview.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qmainwindow.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qrubberband.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qsizepolicy.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qslider.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qsplitter.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qstatusbar.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qstyle.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qstyleoption.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qtabbar.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qtableview.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qtabwidget.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qtoolbar.h \
-	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qtreeview.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qtwidgets-config.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qtwidgetsexports.h \
 	D:/Workspace/Application/Qt/6.9.1/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -456,17 +395,20 @@ FileManager_autogen/timestamp: \
 	D:/Workspace/Application/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows.cmake \
 	D:/Workspace/Application/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/WindowsPaths.cmake \
 	D:/Workspace/TuringNinth/FileManager/FileManager/CMakeLists.txt \
-	D:/Workspace/TuringNinth/FileManager/FileManager/ExceptionHandler.cpp \
-	D:/Workspace/TuringNinth/FileManager/FileManager/ExceptionHandler.h \
-	D:/Workspace/TuringNinth/FileManager/FileManager/FileOperations.cpp \
-	D:/Workspace/TuringNinth/FileManager/FileManager/FileOperations.h \
+	D:/Workspace/TuringNinth/FileManager/FileManager/Config/ConfigManager.cpp \
+	D:/Workspace/TuringNinth/FileManager/FileManager/Config/ConfigManager.h \
+	D:/Workspace/TuringNinth/FileManager/FileManager/Config/Header.h \
+	D:/Workspace/TuringNinth/FileManager/FileManager/Exception/ExceptionHandler.cpp \
+	D:/Workspace/TuringNinth/FileManager/FileManager/Exception/ExceptionHandler.h \
+	D:/Workspace/TuringNinth/FileManager/FileManager/FileOperation/FileOperations.cpp \
+	D:/Workspace/TuringNinth/FileManager/FileManager/FileOperation/FileOperations.h \
+	D:/Workspace/TuringNinth/FileManager/FileManager/UI/mainwindow.cpp \
+	D:/Workspace/TuringNinth/FileManager/FileManager/UI/mainwindow.h \
 	D:/Workspace/TuringNinth/FileManager/FileManager/build/Desktop_Qt_6_9_1_MSVC2022_64bit-Debug/.qtc/package-manager/auto-setup.cmake \
 	D:/Workspace/TuringNinth/FileManager/FileManager/build/Desktop_Qt_6_9_1_MSVC2022_64bit-Debug/.qtc/package-manager/maintenance_tool_provider.cmake \
 	D:/Workspace/TuringNinth/FileManager/FileManager/build/Desktop_Qt_6_9_1_MSVC2022_64bit-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake \
 	D:/Workspace/TuringNinth/FileManager/FileManager/build/Desktop_Qt_6_9_1_MSVC2022_64bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
 	D:/Workspace/TuringNinth/FileManager/FileManager/build/Desktop_Qt_6_9_1_MSVC2022_64bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
 	D:/Workspace/TuringNinth/FileManager/FileManager/main.cpp \
-	D:/Workspace/TuringNinth/FileManager/FileManager/mainwindow.cpp \
-	D:/Workspace/TuringNinth/FileManager/FileManager/mainwindow.h \
-	D:/Workspace/TuringNinth/FileManager/FileManager/mainwindow.ui \
+	D:/Workspace/TuringNinth/FileManager/FileManager/UI/mainwindow.ui \
 	D:/Workspace/Application/Qt/Tools/CMake_64/bin/cmake.exe

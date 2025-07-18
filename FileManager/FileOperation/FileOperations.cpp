@@ -28,7 +28,7 @@ bool FileOperations::createFile(const QString &filePath, const QString &content)
 {
     emit operationStarted("CreateFile");//触发信号，表示开始创建文件
 
-    QFile file(filepath);//创建一个QFile对象file，并将其与filepath指向的文件关联起来
+    QFile file(filePath);//创建一个QFile对象file，并将其与filepath指向的文件关联起来
 
     // 检查文件是否已存在
     if(file.exists()) {

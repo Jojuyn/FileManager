@@ -361,21 +361,33 @@
 	"HEADERS" : 
 	[
 		[
-			"D:/Workspace/TuringNinth/FileManager/FileManager/ExceptionHandler.h",
+			"D:/Workspace/TuringNinth/FileManager/FileManager/Config/ConfigManager.h",
 			"MU",
-			"EWIEGA46WW/moc_ExceptionHandler.cpp",
+			"PUA4RWX4XS/moc_ConfigManager.cpp",
 			null
 		],
 		[
-			"D:/Workspace/TuringNinth/FileManager/FileManager/FileOperations.h",
+			"D:/Workspace/TuringNinth/FileManager/FileManager/Config/Header.h",
 			"MU",
-			"EWIEGA46WW/moc_FileOperations.cpp",
+			"PUA4RWX4XS/moc_Header.cpp",
 			null
 		],
 		[
-			"D:/Workspace/TuringNinth/FileManager/FileManager/mainwindow.h",
+			"D:/Workspace/TuringNinth/FileManager/FileManager/Exception/ExceptionHandler.h",
 			"MU",
-			"EWIEGA46WW/moc_mainwindow.cpp",
+			"KMBLZ4PG65/moc_ExceptionHandler.cpp",
+			null
+		],
+		[
+			"D:/Workspace/TuringNinth/FileManager/FileManager/FileOperation/FileOperations.h",
+			"MU",
+			"6E3M3FYFTR/moc_FileOperations.cpp",
+			null
+		],
+		[
+			"D:/Workspace/TuringNinth/FileManager/FileManager/UI/mainwindow.h",
+			"MU",
+			"KRKR4BN5RM/moc_mainwindow.cpp",
 			null
 		]
 	],
@@ -435,22 +447,27 @@
 	"SOURCES" : 
 	[
 		[
-			"D:/Workspace/TuringNinth/FileManager/FileManager/ExceptionHandler.cpp",
+			"D:/Workspace/TuringNinth/FileManager/FileManager/Config/ConfigManager.cpp",
 			"MU",
 			null
 		],
 		[
-			"D:/Workspace/TuringNinth/FileManager/FileManager/FileOperations.cpp",
+			"D:/Workspace/TuringNinth/FileManager/FileManager/Exception/ExceptionHandler.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/Workspace/TuringNinth/FileManager/FileManager/FileOperation/FileOperations.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/Workspace/TuringNinth/FileManager/FileManager/UI/mainwindow.cpp",
 			"MU",
 			null
 		],
 		[
 			"D:/Workspace/TuringNinth/FileManager/FileManager/main.cpp",
-			"MU",
-			null
-		],
-		[
-			"D:/Workspace/TuringNinth/FileManager/FileManager/mainwindow.cpp",
 			"MU",
 			null
 		]

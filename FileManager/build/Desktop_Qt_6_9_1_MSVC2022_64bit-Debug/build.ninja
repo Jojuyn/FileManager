@@ -67,30 +67,39 @@ build CMakeFiles\FileManager.dir\main.cpp.obj: CXX_COMPILER__FileManager_unscann
   TARGET_COMPILE_PDB = CMakeFiles\FileManager.dir\
   TARGET_PDB = FileManager.pdb
 
-build CMakeFiles\FileManager.dir\mainwindow.cpp.obj: CXX_COMPILER__FileManager_unscanned_Debug D$:\Workspace\TuringNinth\FileManager\FileManager\mainwindow.cpp || cmake_object_order_depends_target_FileManager
+build CMakeFiles\FileManager.dir\UI\mainwindow.cpp.obj: CXX_COMPILER__FileManager_unscanned_Debug D$:\Workspace\TuringNinth\FileManager\FileManager\UI\mainwindow.cpp || cmake_object_order_depends_target_FileManager
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   FLAGS = -DQT_QML_DEBUG /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd -Zc:__cplusplus -permissive- -utf-8
   INCLUDES = -ID:\Workspace\TuringNinth\FileManager\FileManager\build\Desktop_Qt_6_9_1_MSVC2022_64bit-Debug\FileManager_autogen\include -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\include\QtCore -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\include -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\mkspecs\win32-msvc -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\include\QtWidgets -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\include\QtGui -external:W0
   OBJECT_DIR = CMakeFiles\FileManager.dir
-  OBJECT_FILE_DIR = CMakeFiles\FileManager.dir
+  OBJECT_FILE_DIR = CMakeFiles\FileManager.dir\UI
   TARGET_COMPILE_PDB = CMakeFiles\FileManager.dir\
   TARGET_PDB = FileManager.pdb
 
-build CMakeFiles\FileManager.dir\ExceptionHandler.cpp.obj: CXX_COMPILER__FileManager_unscanned_Debug D$:\Workspace\TuringNinth\FileManager\FileManager\ExceptionHandler.cpp || cmake_object_order_depends_target_FileManager
+build CMakeFiles\FileManager.dir\Exception\ExceptionHandler.cpp.obj: CXX_COMPILER__FileManager_unscanned_Debug D$:\Workspace\TuringNinth\FileManager\FileManager\Exception\ExceptionHandler.cpp || cmake_object_order_depends_target_FileManager
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   FLAGS = -DQT_QML_DEBUG /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd -Zc:__cplusplus -permissive- -utf-8
   INCLUDES = -ID:\Workspace\TuringNinth\FileManager\FileManager\build\Desktop_Qt_6_9_1_MSVC2022_64bit-Debug\FileManager_autogen\include -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\include\QtCore -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\include -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\mkspecs\win32-msvc -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\include\QtWidgets -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\include\QtGui -external:W0
   OBJECT_DIR = CMakeFiles\FileManager.dir
-  OBJECT_FILE_DIR = CMakeFiles\FileManager.dir
+  OBJECT_FILE_DIR = CMakeFiles\FileManager.dir\Exception
   TARGET_COMPILE_PDB = CMakeFiles\FileManager.dir\
   TARGET_PDB = FileManager.pdb
 
-build CMakeFiles\FileManager.dir\FileOperations.cpp.obj: CXX_COMPILER__FileManager_unscanned_Debug D$:\Workspace\TuringNinth\FileManager\FileManager\FileOperations.cpp || cmake_object_order_depends_target_FileManager
+build CMakeFiles\FileManager.dir\FileOperation\FileOperations.cpp.obj: CXX_COMPILER__FileManager_unscanned_Debug D$:\Workspace\TuringNinth\FileManager\FileManager\FileOperation\FileOperations.cpp || cmake_object_order_depends_target_FileManager
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   FLAGS = -DQT_QML_DEBUG /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd -Zc:__cplusplus -permissive- -utf-8
   INCLUDES = -ID:\Workspace\TuringNinth\FileManager\FileManager\build\Desktop_Qt_6_9_1_MSVC2022_64bit-Debug\FileManager_autogen\include -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\include\QtCore -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\include -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\mkspecs\win32-msvc -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\include\QtWidgets -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\include\QtGui -external:W0
   OBJECT_DIR = CMakeFiles\FileManager.dir
-  OBJECT_FILE_DIR = CMakeFiles\FileManager.dir
+  OBJECT_FILE_DIR = CMakeFiles\FileManager.dir\FileOperation
+  TARGET_COMPILE_PDB = CMakeFiles\FileManager.dir\
+  TARGET_PDB = FileManager.pdb
+
+build CMakeFiles\FileManager.dir\Config\ConfigManager.cpp.obj: CXX_COMPILER__FileManager_unscanned_Debug D$:\Workspace\TuringNinth\FileManager\FileManager\Config\ConfigManager.cpp || cmake_object_order_depends_target_FileManager
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  FLAGS = -DQT_QML_DEBUG /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd -Zc:__cplusplus -permissive- -utf-8
+  INCLUDES = -ID:\Workspace\TuringNinth\FileManager\FileManager\build\Desktop_Qt_6_9_1_MSVC2022_64bit-Debug\FileManager_autogen\include -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\include\QtCore -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\include -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\mkspecs\win32-msvc -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\include\QtWidgets -external:ID:\Workspace\Application\Qt\6.9.1\msvc2022_64\include\QtGui -external:W0
+  OBJECT_DIR = CMakeFiles\FileManager.dir
+  OBJECT_FILE_DIR = CMakeFiles\FileManager.dir\Config
   TARGET_COMPILE_PDB = CMakeFiles\FileManager.dir\
   TARGET_PDB = FileManager.pdb
 
@@ -102,7 +111,7 @@ build CMakeFiles\FileManager.dir\FileOperations.cpp.obj: CXX_COMPILER__FileManag
 #############################################
 # Link the executable FileManager.exe
 
-build FileManager.exe: CXX_EXECUTABLE_LINKER__FileManager_Debug CMakeFiles\FileManager.dir\FileManager_autogen\mocs_compilation.cpp.obj CMakeFiles\FileManager.dir\main.cpp.obj CMakeFiles\FileManager.dir\mainwindow.cpp.obj CMakeFiles\FileManager.dir\ExceptionHandler.cpp.obj CMakeFiles\FileManager.dir\FileOperations.cpp.obj | D$:\Workspace\Application\Qt\6.9.1\msvc2022_64\lib\Qt6Widgetsd.lib D$:\Workspace\Application\Qt\6.9.1\msvc2022_64\lib\Qt6Guid.lib D$:\Workspace\Application\Qt\6.9.1\msvc2022_64\lib\Qt6Cored.lib D$:\Workspace\Application\Qt\6.9.1\msvc2022_64\lib\Qt6EntryPointd.lib || FileManager_autogen FileManager_autogen_timestamp_deps
+build FileManager.exe: CXX_EXECUTABLE_LINKER__FileManager_Debug CMakeFiles\FileManager.dir\FileManager_autogen\mocs_compilation.cpp.obj CMakeFiles\FileManager.dir\main.cpp.obj CMakeFiles\FileManager.dir\UI\mainwindow.cpp.obj CMakeFiles\FileManager.dir\Exception\ExceptionHandler.cpp.obj CMakeFiles\FileManager.dir\FileOperation\FileOperations.cpp.obj CMakeFiles\FileManager.dir\Config\ConfigManager.cpp.obj | D$:\Workspace\Application\Qt\6.9.1\msvc2022_64\lib\Qt6Widgetsd.lib D$:\Workspace\Application\Qt\6.9.1\msvc2022_64\lib\Qt6Guid.lib D$:\Workspace\Application\Qt\6.9.1\msvc2022_64\lib\Qt6Cored.lib D$:\Workspace\Application\Qt\6.9.1\msvc2022_64\lib\Qt6EntryPointd.lib || FileManager_autogen FileManager_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = D:\Workspace\Application\Qt\6.9.1\msvc2022_64\lib\Qt6Widgetsd.lib  D:\Workspace\Application\Qt\6.9.1\msvc2022_64\lib\Qt6Guid.lib  D:\Workspace\Application\Qt\6.9.1\msvc2022_64\lib\Qt6Cored.lib  mpr.lib  userenv.lib  D:\Workspace\Application\Qt\6.9.1\msvc2022_64\lib\Qt6EntryPointd.lib  shell32.lib  d3d11.lib  dxgi.lib  dxguid.lib  d3d12.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -178,7 +187,7 @@ build FileManager_autogen_timestamp_deps: phony
 #############################################
 # Utility command for FileManager_autogen
 
-build FileManager_autogen: phony CMakeFiles\FileManager_autogen FileManager_autogen\include\ui_mainwindow.h FileManager_autogen\timestamp FileManager_autogen\mocs_compilation.cpp FileManager_autogen_timestamp_deps
+build FileManager_autogen: phony CMakeFiles\FileManager_autogen FileManager_autogen\include\UI\ui_mainwindow.h FileManager_autogen\timestamp FileManager_autogen\mocs_compilation.cpp FileManager_autogen_timestamp_deps
 
 
 #############################################
@@ -195,7 +204,7 @@ build FileManager_autogen\timestamp FileManager_autogen\mocs_compilation.cpp | $
 #############################################
 # Phony custom command for CMakeFiles\FileManager_autogen
 
-build CMakeFiles\FileManager_autogen FileManager_autogen\include\ui_mainwindow.h | ${cmake_ninja_workdir}CMakeFiles\FileManager_autogen ${cmake_ninja_workdir}FileManager_autogen\include\ui_mainwindow.h: phony FileManager_autogen\timestamp || FileManager_autogen_timestamp_deps
+build CMakeFiles\FileManager_autogen FileManager_autogen\include\UI\ui_mainwindow.h | ${cmake_ninja_workdir}CMakeFiles\FileManager_autogen ${cmake_ninja_workdir}FileManager_autogen\include\UI\ui_mainwindow.h: phony FileManager_autogen\timestamp || FileManager_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.
