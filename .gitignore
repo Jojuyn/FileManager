@@ -1,6 +1,11 @@
 # This file is used to ignore files which are generated
 # ----------------------------------------------------------------------------
 
+# 忽略 .idea 文件夹
+.idea/
+
+# 忽略 cmake-build-debug 文件夹
+cmake-build-debug/
 *~
 *.autosave
 *.a
