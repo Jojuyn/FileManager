@@ -28,8 +28,8 @@ public:
     bool move(const QString &source, const QString &destination);
 
     //属性管理
-    static QVariantMap getFileProperties(const QString &path);
-    static bool setFileModifiedTime(const QString &path, const QDateTime &time);
+    QVariantMap getFileProperties(const QString &path);
+    bool setFileModifiedTime(const QString &path, const QDateTime &time);
 
     //回收站操作
     bool moveToRecycleBin(const QString &path);
@@ -37,6 +37,7 @@ public:
     bool emptyRecycleBin();
 
 signals:
+    void operationStarted(const QString &operation);
     void operationCompleted(const QString &operation, bool success);
     void errorOccurred(const QString &errorMessage);
 

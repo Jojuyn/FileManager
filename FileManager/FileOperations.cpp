@@ -115,6 +115,37 @@ bool FileOperations::setFileModifiedTime(const QString &path, const QDateTime &t
     return false;
 }
 
+// ==================== 平台私有方法 ====================
+#ifdef Q_OS_WIN
+bool windowsMoveToRecycleBin(const QString &path)
+{
+    // Windows API 实现
+    SHFILEOPSTRUCTW op;
+    ZeroMemory(&op, sizeof(op));
+
+    // TODO: 填充结构体参数
+    // op.pFrom = 转换路径为LPCWSTR
+    // op.wFunc = FO_DELETE;
+    // op.fFlags = FOF_ALLOWUNDO;
+
+    int result = SHFileOperationW(&op);
+    return result == 0;
+}
+#elif defined(Q_OS_LINUX)
+bool FileOperations::linuxMoveToTrash(const QString &path)
+{
+    // DBus 或 gio 命令实现
+    return QProcess::execute("gio", {"trash", path}) == 0;
+}
+#endif
+
+// ==================== 辅助方法 ====================
+bool ensureDirectoryExists(const QString &path)
+{
+    // TODO: 确保目录存在
+    return true;
+}
+
 // ==================== 回收站操作 ====================
 bool FileOperations::moveToRecycleBin(const QString &path)
 {
@@ -146,33 +177,4 @@ bool FileOperations::restoreFromRecycleBin(const QString &path)
     return false;
 }
 
-// ==================== 平台私有方法 ====================
-#ifdef Q_OS_WIN
-bool FileOperations::windowsMoveToRecycleBin(const QString &path)
-{
-    // Windows API 实现
-    SHFILEOPSTRUCTW op;
-    ZeroMemory(&op, sizeof(op));
 
-    // TODO: 填充结构体参数
-    // op.pFrom = 转换路径为LPCWSTR
-    // op.wFunc = FO_DELETE;
-    // op.fFlags = FOF_ALLOWUNDO;
-
-    int result = SHFileOperationW(&op);
-    return result == 0;
-}
-#elif defined(Q_OS_LINUX)
-bool FileOperations::linuxMoveToTrash(const QString &path)
-{
-    // DBus 或 gio 命令实现
-    return QProcess::execute("gio", {"trash", path}) == 0;
-}
-#endif
-
-// ==================== 辅助方法 ====================
-bool FileOperations::ensureDirectoryExists(const QString &path)
-{
-    // TODO: 确保目录存在
-    return true;
-}
