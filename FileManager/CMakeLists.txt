@@ -9,16 +9,16 @@ qt_standard_project_setup()
 qt_add_executable(FileManager
     WIN32 MACOSX_BUNDLE
     main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
+    UI/mainwindow.cpp
+    UI/mainwindow.h
+    UI/mainwindow.ui
     ExceptionHandler.cpp
     ExceptionHandler.h
-    FileOperations.cpp
-    FileOperations.h
-ConfigManager.cpp
-    ConfigManager.h
-    Header.h
+    FileOperation/FileOperations.cpp
+    FileOperation/FileOperations.h
+    Config/ConfigManager.cpp
+    Config/ConfigManager.h
+    Config/Header.h
 )
 
 target_link_libraries(FileManager
