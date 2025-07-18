@@ -3,6 +3,8 @@
 #include <QDir>
 #include <QDebug>
 #include <QStorageInfo>
+#include <QProcess>
+#include <QSaveFile>
 
 // 平台特定头文件
 #ifdef Q_OS_WIN
@@ -18,18 +20,36 @@
 FileOperations::FileOperations(QObject *parent)
     : QObject(parent)
 {
-    // 初始化操作（如需）
+    // 目前不需要特殊初始化
 }
 
 // ==================== 基础文件操作 ====================
 bool FileOperations::createFile(const QString &filePath, const QString &content)
 {
-    emit operationStarted("CreateFile");
+    emit operationStarted("CreateFile");//触发信号，表示开始创建文件
 
-    // TODO: 实现文件创建逻辑
-    // 1. 检查文件是否已存在
-    // 2. 写入内容
-    // 3. 错误处理
+    QFile file(filepath);//创建一个QFile对象file，并将其与filepath指向的文件关联起来
+
+    // 检查文件是否已存在
+    if(file.exists()) {
+        emit errorOccurred("File already exists");
+        emit operationCompleted("CreateFile", false);
+        return false;  //存在则返回0，表示创建文件失败
+    }
+
+    // 尝试打开文件进行写入
+    if(!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        emit errorOccurred("Failed to open file for writing: " + file.errorString());
+        emit operationCompleted("CreateFile", false);
+        //文件打开或写入失败了，返回false
+        return false;
+    }
+
+    // 写入内容
+    QTextStream out(&file);
+    out << content;
+    file.close();
+
 
     emit operationCompleted("CreateFile", true);
     return true;
@@ -38,9 +58,21 @@ bool FileOperations::createFile(const QString &filePath, const QString &content)
 bool FileOperations::createDirectory(const QString &dirPath)
 {
     emit operationStarted("CreateDirectory");
+    QDir dir(dirPath);
+    // 检查目录是否已存在，与上一个函数同理
+    if(dir.exists()) {
+        emit errorOccurred("Directory already exists");
+        emit operationCompleted("CreateDirectory", false);
+        return false;
+    }
 
-    // TODO: 实现目录创建
-    // 注意递归创建父目录
+    // 递归创建目录
+    if(!dir.mkpath(".")) {  // mkpath会自动创建所有必要的父目录
+        //"."表示当前目录，如果创建目录失败，那么
+        emit errorOccurred("Failed to create directory");
+        emit operationCompleted("CreateDirectory", false);
+        return false;
+    }
 
     emit operationCompleted("CreateDirectory", true);
     return true;
@@ -50,27 +82,164 @@ bool FileOperations::deleteFile(const QString &filePath, bool permanent)
 {
     emit operationStarted(permanent ? "DeleteFile" : "MoveToTrash");
 
-    if(permanent) {
-        // TODO: 直接删除实现
-    } else {
-        // 调用回收站方法
-        return moveToRecycleBin(filePath);
+    // 检查文件是否存在
+    if(!QFile::exists(filePath)) {
+        emit errorOccurred("File does not exist");
+        emit operationCompleted(permanent ? "DeleteFile" : "MoveToTrash", false);
+        return false;
     }
 
-    emit operationCompleted("DeleteFile", true);
-    return true;
+    bool result = false;
+
+    if(permanent) {
+        // 永久删除文件
+        result = QFile::remove(filePath);
+        if(!result) {
+            emit errorOccurred("Failed to delete file");
+        }
+    } else {
+        // 移动到回收站
+        result = moveToRecycleBin(filePath);
+    }
+
+    emit operationCompleted(permanent ? "DeleteFile" : "MoveToTrash", result);
+    return result;
 }
+bool FileOperations::deleteDirectory(const QString &dirPath, bool permanent)
+{
+    emit operationStarted(permanent ? "DeleteDirectory" : "MoveToTrash");
+
+    QDir dir(dirPath);
+
+    // 检查目录是否存在
+    if(!dir.exists()) {
+        emit errorOccurred("Directory does not exist");
+        emit operationCompleted(permanent ? "DeleteDirectory" : "MoveToTrash", false);
+        return false;
+    }
+
+    bool result = false;
+    if(permanent) {
+        // 永久删除目录及其内容
+        result = dir.removeRecursively();
+        if(!result) {
+            emit errorOccurred("Failed to delete directory");
+        }
+    } else {
+        // 移动到回收站
+        result = moveToRecycleBin(dirPath);
+    }
+
+    emit operationCompleted(permanent ? "DeleteDirectory" : "MoveToTrash", result);
+    return result;
+}
+
+bool FileOperations::rename(const QString &oldPath, const QString &newName)
+{
+    emit operationStarted("Rename");
+
+    QFileInfo oldInfo(oldPath);
+    QString newPath = oldInfo.absoluteDir().absoluteFilePath(newName);
+
+    // 检查源文件是否存在
+    if(!oldInfo.exists()) {
+        emit errorOccurred("Source file does not exist");
+        emit operationCompleted("Rename", false);
+        return false;
+    }
+
+    // 检查目标文件是否已存在
+    if(QFile::exists(newPath)) {
+        emit errorOccurred("Target file already exists");
+        emit operationCompleted("Rename", false);
+        return false;
+    }
+
+    // 执行重命名
+    bool result = QFile::rename(oldPath, newPath);
+    if(!result) {
+        emit errorOccurred("Failed to rename file");
+    }
+
+    emit operationCompleted("Rename", result);
+    return result;
+}
+
 
 // ==================== 文件操作 ====================
 bool FileOperations::copy(const QString &source, const QString &destination)
 {
     emit operationStarted("Copy");
 
-    // TODO: 实现复制逻辑
-    // 建议：
-    // 1. 检查源文件存在性
-    // 2. 检查目标路径可用空间
-    // 3. 分块复制并发射progress信号
+    // 检查源文件是否存在
+    if(!QFile::exists(source)) {
+        emit errorOccurred("Source file does not exist");
+        emit operationCompleted("Copy", false);
+        return false;
+    }
+
+    // 检查目标文件是否已存在
+    if(QFile::exists(destination)) {
+        emit errorOccurred("Destination file already exists");
+        emit operationCompleted("Copy", false);
+        return false;
+    }
+
+    // 检查目标路径是否有足够空间
+    QStorageInfo storage(QFileInfo(destination).absoluteDir());
+    if(storage.bytesAvailable() < QFileInfo(source).size()) {
+        emit errorOccurred("Not enough disk space");
+        emit operationCompleted("Copy", false);
+        return false;
+    }
+
+    // 使用QSaveFile进行安全的文件复制
+    QFile srcFile(source);
+    QSaveFile destFile(destination);
+
+    if(!srcFile.open(QIODevice::ReadOnly)) {
+        emit errorOccurred("Failed to open source file: " + srcFile.errorString());
+        emit operationCompleted("Copy", false);
+        return false;
+    }
+
+    if(!destFile.open(QIODevice::WriteOnly)) {
+        emit errorOccurred("Failed to open destination file: " + destFile.errorString());
+        emit operationCompleted("Copy", false);
+        return false;
+    }
+
+    // 分块复制文件
+    const qint64 bufferSize = 1024 * 1024; // 1MB缓冲区
+    char buffer[bufferSize];
+    qint64 totalBytes = srcFile.size();
+    qint64 bytesCopied = 0;
+
+    while(!srcFile.atEnd()) {
+        qint64 read = srcFile.read(buffer, bufferSize);
+        if(read == -1) {
+            emit errorOccurred("Error reading source file");
+            emit operationCompleted("Copy", false);
+            return false;
+        }
+
+        if(destFile.write(buffer, read) != read) {
+            emit errorOccurred("Error writing to destination file");
+            emit operationCompleted("Copy", false);
+            return false;
+        }
+
+        bytesCopied += read;
+        // 可以在这里发射进度信号，如果需要的话
+        // emit progressChanged(bytesCopied * 100 / totalBytes);
+    }
+
+    // 确保所有数据都写入磁盘
+    if(!destFile.commit()) {
+        emit errorOccurred("Failed to commit changes to destination file");
+        emit operationCompleted("Copy", false);
+        return false;
+    }
 
     emit operationCompleted("Copy", true);
     return true;
@@ -78,16 +247,22 @@ bool FileOperations::copy(const QString &source, const QString &destination)
 
 bool FileOperations::move(const QString &source, const QString &destination)
 {
-    // 先尝试直接重命名
+    emit operationStarted("Move");
+
+    // 先尝试直接重命名（同设备移动）
     if(QFile::rename(source, destination)) {
+        emit operationCompleted("Move", true);
         return true;
     }
 
     // 跨设备移动需要复制+删除
     if(copy(source, destination)) {
-        return deleteFile(source, true);
+        bool deleteResult = deleteFile(source, true);
+        emit operationCompleted("Move", deleteResult);
+        return deleteResult;
     }
 
+    emit operationCompleted("Move", false);
     return false;
 }
 
