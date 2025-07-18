@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>746</width>
-    <height>485</height>
+    <width>747</width>
+    <height>502</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -87,14 +87,24 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <string>选择文件</string>
     </property>
    </widget>
+   <widget class="QListView" name="listView">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>80</y>
+      <width>691</width>
+      <height>381</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>746</width>
-     <height>20</height>
+     <width>747</width>
+     <height>17</height>
     </rect>
    </property>
   </widget>
