@@ -16,16 +16,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    filemanager.cpp \
+    ExceptionHandler.cpp \
+    FileOperations.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
-    filemanager.h \
+    ExceptionHandler.h \
+    FileOperations.h \
     mainwindow.h
 
 FORMS += \
-    filemanager.ui \
     mainwindow.ui
 
 # Default rules for deployment.

@@ -19,6 +19,12 @@
 #include <QFileSystemModel>
 #include <QPointer>
 
+
+// 前置声明业务类（不包含实现细节）
+class FileOperator;
+class FileSearcher;
+class ConfigManager;
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -31,89 +37,85 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void refreshCurrentView(); // 刷新当前路径的文件列表
-    void setCurrentPath(); // 设置当前显示路径
-    QString currentPath() const; // 获取当前路径
+    // === UI刷新接口 ===
+    void refreshCurrentView();
+
+    // === 路径管理接口 ===
+    void setCurrentPath(const QString &path);
+    QString currentPath() const;
 
 signals:
-    // 转发文件操作请求(供其他模块连接用)
-    void createFileRequested(const QString& path);
-    void createDirRequested(const QString& path);
-    void copyRequested(const QStringList& sources, const QString& dest);
-    void moveRequested(const QStringList& sources, const QString& dest);
-    void deleteRequested(const QStringList& paths, bool permanent);
-    void searchRequested(const QString& keyword);
+    // === 文件操作信号（供业务类连接） ===
+    void createFileRequested(const QString &path);
+    void createDirRequested(const QString &path);
+    void copyRequested(const QStringList &sources, const QString &dest);
+    void moveRequested(const QStringList &sources, const QString &dest);
+    void deleteRequested(const QStringList &paths, bool permanent);
+    void searchRequested(const QString &keyword);
+
+public slots:
+    // === 业务反馈槽函数 ===
+    void onFileOpStarted(const QString &opName);
+    void onFileOpCompleted(const QString &opName, bool success);
+    void onFileOpProgress(qint64 done, qint64 total);
 
 private slots:
-    // 工具栏/菜单动作处理
+    // === UI事件处理槽函数 ===
+    // 文件操作
     void onActionNewFile();
     void onActionNewDir();
     void onActionCopy();
     void onActionCut();
     void onActionPaste();
     void onActionDelete();
+
+    // 导航操作
     void onActionRefresh();
     void onActionGoBack();
     void onActionGoForward();
     void onActionGoUp();
     void onActionGoHome();
     void onActionSearch();
-    // 视图交互处理
-    void onTreeViewClicked(const QModelIndex& index);
-    void onFileViewDoubleClicked(const QModelIndex& index);
+
+    // 视图交互
+    void onTreeViewClicked(const QModelIndex &index);
+    void onFileViewDoubleClicked(const QModelIndex &index);
     void onPathEditReturnPressed();
     void onSearchEditReturnPressed();
-    // 接收其他模块的反馈
-    void onFileOpStarted(const QString& opName);
-    void onFileOpCompleted(const QString& opName, bool success);
-    void onFileOpProgress(qint64 done, qint64 total);
 
 private:
     Ui::MainWindow *ui;
-    // UI组件
-    QToolBar* m_mainToolBar;       // 主工具栏
-    QStatusBar* m_statusBar;       // 状态栏
-    QLabel* m_statusLabel;         // 状态栏信息标签
-    QLabel* m_progressLabel;       // 进度标签
 
-    QSplitter* m_mainSplitter;     // 主分割器
-    QTreeView* m_treeView;         // 目录树视图
-    QTabWidget* m_fileViews;       // 文件视图标签页（图标/列表/详情）
-    QListView* m_iconView;         // 图标视图
-    QListView* m_listView;         // 列表视图
-    QTableView* m_tableView;       // 详情视图
+    // === 业务对象指针 ===
+    FileOperator *m_fileOperator;
+    FileSearcher *m_fileSearcher;
+    ConfigManager *m_configManager;
 
-    QLineEdit* m_pathEdit;         // 路径输入框
-    QLineEdit* m_searchEdit;       // 搜索输入框
+    // === UI组件指针 ===
+    QToolBar *m_mainToolBar;
+    QStatusBar *m_statusBar;
+    QLabel *m_statusLabel;
+    QLabel *m_progressLabel;
+    QSplitter *m_mainSplitter;
+    QTreeView *m_treeView;
+    QTabWidget *m_fileViews;
+    QListView *m_iconView;
+    QListView *m_listView;
+    QTableView *m_tableView;
+    QLineEdit *m_pathEdit;
+    QLineEdit *m_searchEdit;
 
-    // 数据模型
-    QFileSystemModel* m_fileModel; // 文件系统模型
+    // === 数据模型 ===
+    QFileSystemModel *m_fileModel;
 
-    // 动作对象
-    QAction* m_actNewFile;
-    QAction* m_actNewDir;
-    QAction* m_actCopy;
-    QAction* m_actCut;
-    QAction* m_actPaste;
-    QAction* m_actDelete;
-    QAction* m_actRefresh;
-    QAction* m_actGoBack;
-    QAction* m_actGoForward;
-    QAction* m_actGoUp;
-    QAction* m_actGoHome;
+    // === 初始化方法 ===
+    void initUI();                  // UI组件初始化
+    void createActions();           // 创建动作对象
+    void initModels();              // 初始化数据模型
+    void initBusinessObjects();     // 初始化业务对象
+    void connectSignals();          // 信号槽连接
 
-    // 导航历史
-    QStringList m_navHistory;      // 导航历史记录
-    int m_navHistoryIndex;         // 当前历史索引
-
-    void initUI();                                 // 初始化UI
-    void createActions();                          // 创建动作
-    void createToolBars();                         // 创建工具栏
-    void createMenus();                            // 创建菜单
-    void initViews();                              // 初始化视图
-    void initModels();                             // 初始化模型
-    void connectSignals();                         // 连接信号槽
-    QStringList getSelectedFiles() const;          // 获取选中的文件路径
-    void updateNavHistory(const QString& path);    // 更新导航历史
+    // === 辅助方法 ===
+    QStringList getSelectedFiles() const; // 获取选中文件
 };
 #endif // MAINWINDOW_H
