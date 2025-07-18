@@ -13,6 +13,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
 void MainWindow::initUI()
 {
     createActions();                          // 创建动作
