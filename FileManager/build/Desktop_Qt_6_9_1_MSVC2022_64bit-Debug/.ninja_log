@@ -1,0 +1,12 @@
+# ninja log v6
+27	815	7745018399143737	FileManager_autogen/timestamp	77a8bc83892f017e
+816	3003	7745018400282755	CMakeFiles/FileManager.dir/FileManager_autogen/mocs_compilation.cpp.obj	a90f4e353999602
+18	1059	7745070366086648	build.ninja	7c0269a1cd0c6141
+27	815	7745018399143737	FileManager_autogen/mocs_compilation.cpp	77a8bc83892f017e
+27	815	7745018399143737	D:/Workspace/TuringNinth/FileManager/FileManager/build/Desktop_Qt_6_9_1_MSVC2022_64bit-Debug/FileManager_autogen/timestamp	77a8bc83892f017e
+27	815	7745018399143737	D:/Workspace/TuringNinth/FileManager/FileManager/build/Desktop_Qt_6_9_1_MSVC2022_64bit-Debug/FileManager_autogen/mocs_compilation.cpp	77a8bc83892f017e
+952	2926	7745008846083790	CMakeFiles/FileManager.dir/main.cpp.obj	a7b44e0c30b5eab7
+862	2908	7745018400746661	CMakeFiles/FileManager.dir/mainwindow.cpp.obj	9355fd0215263c56
+1033	2942	7744982379648164	CMakeFiles/FileManager.dir/filemanager.cpp.obj	a327c51e955595b1
+970	1478	7745008846266103	CMakeFiles/FileManager.dir/ExceptionHandler.cpp.obj	bcf2750e3e90ad25
+872	2825	7745018400837466	CMakeFiles/FileManager.dir/FileOperations.cpp.obj	8a715466beea345d
