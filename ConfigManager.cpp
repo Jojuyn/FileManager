@@ -6,83 +6,19 @@
 #include "Header.h"
 
 void ConfigManager::loadConfig(const std::string &filePath) {
-    //读取json文件,用json类型的变量Config接收
-    std::ifstream ifs;
-    ifs.open(filePath);
-    if (!ifs.is_open()) {
-        std::cerr<<"File open failed"<<std::endl;
-        return;
-    }
-    ifs>>Config;
-    ifs.close();
-    defaultPath=Config["defaultPath"];
-    showHidden=Config["showHidden"];
-    //recentPaths=Config["recentPath"];
+    // 读取json文件,用json类型的变量Config接收
+    // 载入默认配置
     // 使用 nlohmann::json 的 get_to() 或 get<>() 方法进行转换
-    //Config.at("recentPaths").get_to(recentPaths);
-    // 或者
-     try {
-            // 1. 检查键是否存在
-            if (Config.contains("recentPaths")) {
-                // 2. 检查类型是否为数组
-                if (Config["recentPaths"].is_array()) {
-                    // 尝试获取数组，这里可能会抛出异常如果数组内元素类型不匹配
-                    recentPaths = Config["recentPaths"].get<std::vector<std::string>>();
-                    std::cout << "Successfully obtained recentPaths, size: " << recentPaths.size() << std::endl;
-                    //载入内存后将历史路径记录进行输出
-                    // for (const auto& path : recentPaths) {
-                    //     std::cout << "- " << path << std::endl;
-                    // }
-                } else if (Config["recentPaths"].is_null()) {
-                    // 如果是 null，可以将其视为空数组
-                    std::cout << "recentPath exists but is null, it will be initialized as an empty vector." << std::endl;
-                    recentPaths.clear();
-                } else {
-                    // 类型不匹配，例如是字符串、数字、对象等
-                    std::cerr << "Error: recentPath exists but is not of array type! The actual type is: "
-                              << Config["recentPaths"].type_name() << std::endl;
-                    recentPaths.clear();
-                }
-            } else {
-                // 键不存在，初始化为空数组
-                std::cout << "recentPath does not exist, it will be initialized as an empty vector." << std::endl;
-                recentPaths.clear();
-            }
-        } catch (const nlohmann::json::type_error& e) {
-            // 捕获 nlohmann::json::type_error 异常
-            std::cerr << "Capture JSON type error: " << e.what() << std::endl;
-            std::cerr << "RecentPaths will be initialized as an empty vector." << std::endl;
-            recentPaths.clear(); // 确保在异常情况下也清空
-        } catch (const nlohmann::json::exception& e) {
-            // 捕获所有 nlohmann::json 相关的其他异常（例如解析错误）
-            std::cerr << "Caught other JSON exceptions: " << e.what() << std::endl;
-            std::cerr << "recentPaths will be initialized as an empty vector." << std::endl;
-            recentPaths.clear();
-        } catch (const std::exception& e) {
-            // 捕获所有标准库异常
-            std::cerr << "Caught an unknown exception:" << e.what() << std::endl;
-            std::cerr << "recentPaths will be initialized as an empty vector." << std::endl;
-            recentPaths.clear();
-        }
+    // Config.at("recentPaths").get_to(recentPaths);
+    // 或者通过异常检测来实现类型的转换来成功获取recentPath数组
     }
 
 void ConfigManager::saveConfig(const std::string &filePath) {
-    Config["defaultPath"] = defaultPath;
-    Config["showHidden"] = showHidden;
-    Config["recentPath"]=recentPaths;
-    //获取当前的defaultPath、showHidden、recentPath存储进Config.json文件中
-    std::ofstream ofs;
-    //用覆盖模式写入，以便于更新到最新的状态
-    ofs.open(filePath,std::ios::ate);
-    if (!ofs.is_open()) {
-        std::cerr<<"File open failed"<<std::endl;
-        return;
-    }
-    //简单写入
-    //ofs<<Config;
-    //格式化写入每行缩进两格
-    ofs<<Config.dump(2);
-    ofs.close();
+    // 获取当前的defaultPath、showHidden、recentPath存储进Config.json文件中
+    // 用覆盖模式写入，以便于更新到最新的状态
+    // 简单写入
+    // ofs<<Config;
+    // 格式化写入每行缩进两格
 }
 
 std::string ConfigManager::getDefaultPath() const {
@@ -98,14 +34,7 @@ std::vector<std::string> ConfigManager::getRecentPaths() const {
 }
 
 void ConfigManager::addRecentPath(const std::string &path) {
-    if (recentPaths.size() <= 5) {
-        recentPaths.push_back(path);
-        std::cout<<"recentPaths successfully added"<<std::endl;
-    }else {
-        std::cout<<"The length of the recentPath array cannot exceed 5"<<std::endl;
-        return;
-    }
-
+    // 长度检测，保证数组长度不超过5
 }
 
 void ConfigManager::setDefaultPath(const std::string &path) {
@@ -115,6 +44,7 @@ void ConfigManager::setDefaultPath(const std::string &path) {
 void ConfigManager::setShowHidden(const bool &val) {
     showHidden=val;
 }
+//测试用例1
 //读取默认配置并输出
 void test01() {
     ConfigManager manager;
@@ -125,6 +55,7 @@ void test01() {
         std::cout << "- " << path << std::endl;
     }
 }
+//测试用例2
 //修改配置并输出检验是否修改成功
 void test02() {
     ConfigManager manager;
