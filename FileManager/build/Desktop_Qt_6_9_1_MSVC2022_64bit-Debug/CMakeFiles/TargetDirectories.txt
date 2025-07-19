@@ -1,8 +1,0 @@
-D:/Workspace/TuringNinth/FileManager/FileManager/build/Desktop_Qt_6_9_1_MSVC2022_64bit-Debug/CMakeFiles/FileManager.dir
-D:/Workspace/TuringNinth/FileManager/FileManager/build/Desktop_Qt_6_9_1_MSVC2022_64bit-Debug/CMakeFiles/edit_cache.dir
-D:/Workspace/TuringNinth/FileManager/FileManager/build/Desktop_Qt_6_9_1_MSVC2022_64bit-Debug/CMakeFiles/rebuild_cache.dir
-D:/Workspace/TuringNinth/FileManager/FileManager/build/Desktop_Qt_6_9_1_MSVC2022_64bit-Debug/CMakeFiles/list_install_components.dir
-D:/Workspace/TuringNinth/FileManager/FileManager/build/Desktop_Qt_6_9_1_MSVC2022_64bit-Debug/CMakeFiles/install.dir
-D:/Workspace/TuringNinth/FileManager/FileManager/build/Desktop_Qt_6_9_1_MSVC2022_64bit-Debug/CMakeFiles/install/local.dir
-D:/Workspace/TuringNinth/FileManager/FileManager/build/Desktop_Qt_6_9_1_MSVC2022_64bit-Debug/CMakeFiles/FileManager_autogen_timestamp_deps.dir
-D:/Workspace/TuringNinth/FileManager/FileManager/build/Desktop_Qt_6_9_1_MSVC2022_64bit-Debug/CMakeFiles/FileManager_autogen.dir
