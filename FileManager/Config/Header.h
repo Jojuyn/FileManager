@@ -5,7 +5,8 @@
 #ifndef HEADER_H
 #define HEADER_H
 #include <iostream>
-#include <nlohmann/json.hpp>
+#include <include/json.hpp>
 #include <fstream>
 #include <string>
+#include <vector>
 #endif //HEADER_H
