@@ -11,7 +11,6 @@ SOURCES += \
     cell_main.cpp
 
 HEADERS += \
-    ../include.h \
     FileOperation/FileOperation.h \
     cell_main.h
 

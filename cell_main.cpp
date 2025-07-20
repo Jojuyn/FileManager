@@ -1,8 +1,11 @@
 #include "cell_main.h"
 #include "ui_cell_main.h"
 #include<QDir>
+#include <QUrl>
+#include <QFile>
 #include<QtDebug>
 #include<QDateTime>
+#include <QFileInfo>
 #include<QFileDialog>
 #include<QMessageBox>
 #include<QDesktopServices>
@@ -80,13 +83,14 @@ void Cell_Main::updateFile(){
     m_model->setHorizontalHeaderLabels(lHeaders);
     ui->tableView->setModel(m_model);
 
+
 }
 
 void Cell_Main::on_btn_upload_clicked()
 {
     auto strPath = QFileDialog::getOpenFileName(nullptr,"文件上传",QDir::homePath(),"*.txt");
     if(strPath.isEmpty()){
-        return;
+        QMessageBox::warning(this,"警告","本次无文件上传");
     }
     auto uploadPath = m_strDataPath+"/"+strPath.section("/",-1);
     //判断我缓存目录中是否有相同文件名的文件
@@ -97,17 +101,42 @@ void Cell_Main::on_btn_upload_clicked()
     bool ret = QFile::copy(strPath,uploadPath);
     if(!ret){
         QMessageBox::warning(nullptr,"信息","上传失败,可能是文件被占用");
+        return;
     }
-
+    // 上传成功后更新文件列表
+    updateFile();
+    // 显示上传成功消息
+    QMessageBox::information(nullptr, "信息", "文件上传成功");
 
 }
+
+void Cell_Main::on_tableView_doubleClicked(const QModelIndex &index)
+{
+    if (!index.isValid())
+        return;
+
+    // 获取选中行的文件路径（第2列，隐藏列）
+    QModelIndex pathIndex = m_model->index(index.row(), 1);
+    QString filePath = m_model->data(pathIndex).toString();
+
+    if (filePath.isEmpty())
+        return;
+
+    // 使用系统默认程序打开文件
+    bool result = QDesktopServices::openUrl(QUrl::fromLocalFile(filePath));
+
+    if (!result) {
+        QMessageBox::warning(this, "错误", "无法打开文件");
+    }
+}
+
+
 
 
 void Cell_Main::on_btn_open_clicked()
 {
     QDesktopServices::openUrl(QUrl(m_strDataPath));
 }
-
 
 void Cell_Main::on_btn_del_clicked()
 {
@@ -123,10 +152,3 @@ void Cell_Main::on_btn_del_clicked()
 
 
 }
-
-
-void Cell_Main::on_pushButton_clicked()
-{
-
-}
-

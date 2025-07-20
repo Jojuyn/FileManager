@@ -27,14 +27,14 @@ private slots:
 
     void on_btn_del_clicked();
 
-    void on_pushButton_clicked();
-
+    void on_tableView_doubleClicked(const QModelIndex &index);
 private:
     Ui::Cell_Main *ui;
     QString m_strDataPath;
     QStandardItemModel *m_model;
-
     QTimer m_timer;
     QString m_cur;
+
+    QString m_selectedFilePath; // 存储当前选中文件的路径
 };
 #endif // CELL_MAIN_H
