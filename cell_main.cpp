@@ -49,6 +49,8 @@ void Cell_Main::updateFile(){
     QString strFlag;
     QList<QStandardItem*> lRow;
     QStandardItemModel *m_temModel=new QStandardItemModel;
+
+    //输出列表
     for(int i=0;i<lFilesInfo.size();i++){
         lRow.clear();
         QFileInfo &info = lFilesInfo[i];
@@ -152,3 +154,65 @@ void Cell_Main::on_btn_del_clicked()
 
 
 }
+
+void Cell_Main::on_trashBtn_clicked()
+{
+    QDesktopServices::openUrl(QUrl::fromLocalFile(m_strRecyclePath));
+}
+
+
+void Cell_Main::on_copyBtn_clicked()
+{
+    auto index = ui->tableView->currentIndex();
+    if(!index.isValid()){
+        QMessageBox::warning(this,"警告","请先选择要复制的文件");
+    }
+
+    //获取当前选中的文件路径
+    auto filePathIndex = m_model->index(index.row(), 1);
+    m_copiedFilePath = m_model->data(filePathIndex).toString();
+
+    // 也可以将文件路径放入剪贴板，这样可以在其他应用中使用
+    QApplication::clipboard()->setText(m_copiedFilePath);
+}
+
+
+void Cell_Main::on_pasteBtn_clicked()
+{
+    if(m_copiedFilePath.isEmpty()){
+        QMessageBox::warning(this,"警告","没有可粘贴的文件");
+        return;
+    }
+
+    QFileInfo fileInfo(m_copiedFilePath);
+    QString baseName = fileInfo.completeBaseName(); //文件名
+    QString suffix = fileInfo.suffix();             //扩展名
+    QString newFilePath;
+    int counter = 1;
+
+    //初始尝试使用原文件名
+    newFilePath = m_strDataPath + "/" + fileInfo.fileName();
+
+    //检查文件是否存在，如果存在则添加序号
+    while (QFile::exists(newFilePath)) {
+        newFilePath = m_strDataPath + "/" + baseName +
+                      "副本(" + QString::number(counter) + ")." + suffix;
+        counter++;
+    }
+    // 执行文件复制
+    if (QFile::copy(m_copiedFilePath, newFilePath)) {
+        QMessageBox::information(this, "信息", "文件粘贴成功");
+        updateFile(); // 刷新文件列表
+    } else {
+        QMessageBox::warning(this, "错误", "粘贴失败");
+    }
+
+}
+
+
+
+void Cell_Main::on_renameBtn_clicked()
+{
+
+}
+

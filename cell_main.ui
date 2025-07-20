@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>609</width>
+    <width>732</width>
     <height>391</height>
    </rect>
   </property>
@@ -88,6 +88,13 @@
           </widget>
          </item>
          <item>
+          <widget class="QPushButton" name="renameBtn">
+           <property name="text">
+            <string>重命名</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="trashBtn">
            <property name="text">
             <string>回收站</string>
@@ -113,8 +120,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>609</width>
-     <height>17</height>
+     <width>732</width>
+     <height>20</height>
     </rect>
    </property>
   </widget>
