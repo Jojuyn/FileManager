@@ -1,6 +1,17 @@
 #include "cell_main.h"
 #include "ui_cell_main.h"
 
+#include <QDir>
+#include <QUrl>
+#include <QFile>
+#include <QtDebug>
+#include <QDateTime>
+#include <QFileInfo>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QDesktopServices>
+#include <QPainter>
+
 Cell_Main::Cell_Main(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Cell_Main)
@@ -15,6 +26,7 @@ Cell_Main::Cell_Main(QWidget *parent)
 
     m_model = new QStandardItemModel;
     connect(&m_timer,&QTimer::timeout,this,&Cell_Main::updateFile);
+    setupConnections();
     m_timer.start(500);
 
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -29,13 +41,18 @@ Cell_Main::~Cell_Main()
     delete m_model;
 }
 
+void Cell_Main::setupConnections() {
+    connect(&m_timer,&QTimer::timeout,this,&Cell_Main::updateFile);
+    connect(ui->themeBtn, &QPushButton::clicked, this, &Cell_Main::showThemeChoose);
+}
+
 void Cell_Main::updateFile(){
 
     QDir d(m_strDataPath);
     QStringList lFiter;
     lFiter<<"*.txt"<<"*.md";
     QFileInfoList lFilesInfo = d.entryInfoList(lFiter,QDir::Files);
-    QString strFilter = ui->lineEdit->text();
+    QString strFilter = ui->searchBar->text();
     QString strFlag;
     QList<QStandardItem*> lRow;
     QStandardItemModel *m_temModel=new QStandardItemModel;
@@ -48,10 +65,10 @@ void Cell_Main::updateFile(){
             continue;
         }
         //序号
-        QStandardItem *p1 = new QStandardItem(info.completeSuffix());
+        QStandardItem *p1 = new QStandardItem(info.suffix());
         strFlag = strFlag+info.absoluteFilePath();
         QStandardItem *p2 = new QStandardItem(info.absoluteFilePath());
-        QStandardItem *p3 = new QStandardItem(info.baseName());
+        QStandardItem *p3 = new QStandardItem(info.completeBaseName());
         QStandardItem *p4 = new QStandardItem(info.birthTime().toString("yyyy/MM/dd hh:mm:ss"));
         QStandardItem *p5 = new QStandardItem(info.lastModified().toString("yyyy/MM/dd hh:mm:ss"));
         QStandardItem *p6 = new QStandardItem(QString::number(info.size())+"B");
@@ -80,11 +97,16 @@ void Cell_Main::updateFile(){
 
 void Cell_Main::on_btn_upload_clicked()
 {
-    auto strPath = QFileDialog::getOpenFileName(nullptr,"文件上传",QDir::homePath(),"*.txt");
+    auto strPath = QFileDialog::getOpenFileName(nullptr, "文件上传", QDir::homePath(), "*.txt *.md");
     if(strPath.isEmpty()){
         QMessageBox::warning(this,"警告","本次无文件上传");
+        return;            //解决了不上传文件重名警告问题
     }
-    auto uploadPath = m_strDataPath+"/"+strPath.section("/",-1);
+
+    QFileInfo fileInfo(strPath);
+    QString fileName = fileInfo.fileName();
+    QString ext = fileInfo.suffix();
+    QString uploadPath = m_strDataPath+"/"+fileName;
     //判断我缓存目录中是否有相同文件名的文件
     if(QFile::exists(uploadPath)){
         QMessageBox::warning(nullptr,"文件已存在","请重新命名！！！");
@@ -99,6 +121,7 @@ void Cell_Main::on_btn_upload_clicked()
     updateFile();
     // 显示上传成功消息
     QMessageBox::information(nullptr, "信息", "文件上传成功");
+
 
 }
 
@@ -141,7 +164,6 @@ void Cell_Main::on_btn_del_clicked()
     auto str = m_model->data(itemp).toString();
     auto ret = QFile::remove(str);
     QMessageBox::information(nullptr,"信息",ret?"文件删除成功":"文件删除失败");
-
 
 }
 
@@ -200,9 +222,128 @@ void Cell_Main::on_pasteBtn_clicked()
 }
 
 
-
 void Cell_Main::on_renameBtn_clicked()
 {
+    auto index = ui->tableView->currentIndex();
+    if(!index.isValid()){
+        QMessageBox::warning(this, "警告", "请先选择要重命名的文件");
+        return;
+    }
 
+    // 获取当前选中的文件路径
+    auto filePathIndex = m_model->index(index.row(), 1);
+    QString oldFilePath = m_model->data(filePathIndex).toString();
+    QFileInfo fileInfo(oldFilePath);
+
+    // 获取当前文件名(不带扩展名)
+    auto fileNameIndex = m_model->index(index.row(), 0);
+    QString oldFileName = m_model->data(fileNameIndex).toString();
+
+    // 弹出输入对话框获取新文件名
+    bool ok;
+    QString newFileName = QInputDialog::getText(this,
+                                                "重命名文件",
+                                                "输入新文件名:",
+                                                QLineEdit::Normal,
+                                                oldFileName,
+                                                &ok);
+
+    if (!ok || newFileName.isEmpty()) {
+        return; // 用户取消或输入为空
+    }
+
+    // 构建新文件路径
+    QString newFilePath = fileInfo.path() + "/" + newFileName + "." + fileInfo.suffix();
+
+    // 检查新文件名是否已存在
+    if (QFile::exists(newFilePath)) {
+        QMessageBox::warning(this, "警告", "该文件名已存在");
+        return;
+    }
+
+    // 执行重命名
+    QFile file(oldFilePath);
+    if (file.rename(newFilePath)) {
+        QMessageBox::information(this, "成功", "文件重命名成功");
+        updateFile(); // 刷新文件列表
+    } else {
+        QMessageBox::warning(this, "错误", "重命名失败: " + file.errorString());
+    }
+
+}
+
+
+void Cell_Main::showThemeChoose()
+{
+    ThemeChoose *theme = new ThemeChoose;
+    theme->setAttribute(Qt::WA_DeleteOnClose); // 窗口关闭时自动删除对象
+    theme->show();
+    connect(theme->ui->refreshBtn, &QPushButton::clicked, this, &Cell_Main::refreshList);
+    connect(theme->ui->Genshin, &QPushButton::clicked, this, &Cell_Main::GenshinTheme);
+    connect(theme->ui->Arknights, &QPushButton::clicked, this, &Cell_Main::ArknightsTheme);
+    connect(theme->ui->Cyberpunk, &QPushButton::clicked, this, &Cell_Main::CyberpunkTheme);
+}
+void Cell_Main::refreshList() {
+    qDebug() << "监测到用户点击刷新按钮";
+    // 保存当前几何位置
+    QRect geometry = this->geometry();
+    hide();
+    show();
+    this->setGeometry(geometry);
+    backgroundImage = QPixmap(); // 清空背景图片
+    setStyleSheet("");
+    qDebug() << "已刷新窗口";
+}
+void Cell_Main::GenshinTheme()
+{
+    QString themePath = QApplication::applicationDirPath()+"/壁纸/Furina-3.png";
+    qDebug() << themePath << "\n";
+    setBackgroundImage(themePath);
+    this->setStyleSheet(GenshinStyle);
+}
+
+void Cell_Main::ArknightsTheme()
+{
+    QString themePath = QApplication::applicationDirPath()+"/壁纸/阿米娅.png";
+    qDebug() << themePath << "\n";
+    setBackgroundImage(themePath);
+    this->setStyleSheet(ArknightsStyle);
+}
+
+void Cell_Main::CyberpunkTheme()
+{
+    QString themePath = QApplication::applicationDirPath()+"/壁纸/Cyberpunk.jpg";
+    qDebug() << themePath << "\n";
+    setBackgroundImage(themePath);
+    this->setStyleSheet(CyberpunkStyle);
+}
+
+void Cell_Main::setBackgroundImage(const QString &imagePath)
+{
+    backgroundImage = QPixmap(imagePath);
+    if (backgroundImage.isNull()) {
+        qWarning() << "Failed to load background image:" << imagePath;
+    }
+    update(); // 触发重绘
+}
+
+void Cell_Main::paintEvent(QPaintEvent *event)
+{
+    QMainWindow::paintEvent(event); // 先调用基类的绘制事件
+
+    if (!backgroundImage.isNull()) {
+        QPainter painter(this);
+
+        // 计算等比例缩放后的尺寸
+        QSize scaledSize = backgroundImage.size();
+        scaledSize.scale(size(), Qt::KeepAspectRatioByExpanding);
+
+        // 计算居中绘制的位置
+        QRect targetRect(QPoint(0, 0), scaledSize);
+        targetRect.moveCenter(rect().center());
+
+        // 绘制背景图片
+        painter.drawPixmap(targetRect, backgroundImage);
+    }
 }
 
