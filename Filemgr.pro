@@ -6,13 +6,11 @@ CONFIG += c++17
 
 
 SOURCES += \
-    FileOperation/FileOperation.cpp \
     main.cpp \
     cell_main.cpp \
     themechoose.cpp
 
 HEADERS += \
-    FileOperation/FileOperation.h \
     cell_main.h \
     themechoose.h
 
