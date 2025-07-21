@@ -1,20 +1,7 @@
 #ifndef CELL_MAIN_H
 #define CELL_MAIN_H
 
-#include <QMainWindow>
-#include <QStandardItemModel>
-#include <QTimer>
-#include<QDir>
-#include<QtDebug>
-#include<QDateTime>
-#include<QFileDialog>
-#include<QMessageBox>
-#include<QDesktopServices>
-#include <QMainWindow>
-#include <QStandardItemModel>
-#include <QTimer>
-#include <QClipboard>
-
+#include "include.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

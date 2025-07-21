@@ -1,15 +1,5 @@
 #include "cell_main.h"
 #include "ui_cell_main.h"
-#include<QDir>
-#include <QUrl>
-#include <QFile>
-#include<QtDebug>
-#include<QDateTime>
-#include <QFileInfo>
-#include<QFileDialog>
-#include<QMessageBox>
-#include<QDesktopServices>
-#include "FileOperation/FileOperation.h"
 
 Cell_Main::Cell_Main(QWidget *parent)
     : QMainWindow(parent)

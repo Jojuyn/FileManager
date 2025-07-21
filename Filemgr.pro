@@ -6,16 +6,16 @@ CONFIG += c++17
 
 
 SOURCES += \
-    FileOperation/FileOperation.cpp \
     main.cpp \
     cell_main.cpp
 
 HEADERS += \
-    FileOperation/FileOperation.h \
-    cell_main.h
+    cell_main.h \
+    include.h
 
 FORMS += \
     cell_main.ui
+
 
 DESTDIR = $$PWD/bin
 
