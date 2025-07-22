@@ -43,7 +43,6 @@ Cell_Main::~Cell_Main()
 
 void Cell_Main::setupConnections() {
     connect(&m_timer,&QTimer::timeout,this,&Cell_Main::updateFile);
-    connect(ui->themeBtn, &QPushButton::clicked, this, &Cell_Main::showThemeChoose);
 }
 
 void Cell_Main::updateFile(){
@@ -272,78 +271,4 @@ void Cell_Main::on_renameBtn_clicked()
 
 }
 
-
-void Cell_Main::showThemeChoose()
-{
-    ThemeChoose *theme = new ThemeChoose;
-    theme->setAttribute(Qt::WA_DeleteOnClose); // 窗口关闭时自动删除对象
-    theme->show();
-    connect(theme->ui->refreshBtn, &QPushButton::clicked, this, &Cell_Main::refreshList);
-    connect(theme->ui->Genshin, &QPushButton::clicked, this, &Cell_Main::GenshinTheme);
-    connect(theme->ui->Arknights, &QPushButton::clicked, this, &Cell_Main::ArknightsTheme);
-    connect(theme->ui->Cyberpunk, &QPushButton::clicked, this, &Cell_Main::CyberpunkTheme);
-}
-void Cell_Main::refreshList() {
-    qDebug() << "监测到用户点击刷新按钮";
-    // 保存当前几何位置
-    QRect geometry = this->geometry();
-    hide();
-    show();
-    this->setGeometry(geometry);
-    backgroundImage = QPixmap(); // 清空背景图片
-    setStyleSheet("");
-    qDebug() << "已刷新窗口";
-}
-void Cell_Main::GenshinTheme()
-{
-    QString themePath = QApplication::applicationDirPath()+"/壁纸/Furina-3.png";
-    qDebug() << themePath << "\n";
-    setBackgroundImage(themePath);
-    this->setStyleSheet(GenshinStyle);
-}
-
-void Cell_Main::ArknightsTheme()
-{
-    QString themePath = QApplication::applicationDirPath()+"/壁纸/阿米娅.png";
-    qDebug() << themePath << "\n";
-    setBackgroundImage(themePath);
-    this->setStyleSheet(ArknightsStyle);
-}
-
-void Cell_Main::CyberpunkTheme()
-{
-    QString themePath = QApplication::applicationDirPath()+"/壁纸/Cyberpunk.jpg";
-    qDebug() << themePath << "\n";
-    setBackgroundImage(themePath);
-    this->setStyleSheet(CyberpunkStyle);
-}
-
-void Cell_Main::setBackgroundImage(const QString &imagePath)
-{
-    backgroundImage = QPixmap(imagePath);
-    if (backgroundImage.isNull()) {
-        qWarning() << "Failed to load background image:" << imagePath;
-    }
-    update(); // 触发重绘
-}
-
-void Cell_Main::paintEvent(QPaintEvent *event)
-{
-    QMainWindow::paintEvent(event); // 先调用基类的绘制事件
-
-    if (!backgroundImage.isNull()) {
-        QPainter painter(this);
-
-        // 计算等比例缩放后的尺寸
-        QSize scaledSize = backgroundImage.size();
-        scaledSize.scale(size(), Qt::KeepAspectRatioByExpanding);
-
-        // 计算居中绘制的位置
-        QRect targetRect(QPoint(0, 0), scaledSize);
-        targetRect.moveCenter(rect().center());
-
-        // 绘制背景图片
-        painter.drawPixmap(targetRect, backgroundImage);
-    }
-}
 

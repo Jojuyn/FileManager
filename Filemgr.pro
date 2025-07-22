@@ -7,17 +7,13 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    cell_main.cpp \
-    themechoose.cpp
+    cell_main.cpp
 
 HEADERS += \
     cell_main.h \
-    themechoose.h \
-    include.h
 
 FORMS += \
-    cell_main.ui \
-    themechoose.ui
+    cell_main.ui
 
 DESTDIR = $$PWD/bin
 
