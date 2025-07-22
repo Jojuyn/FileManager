@@ -19,6 +19,7 @@ Cell_Main::Cell_Main(QWidget *parent)
     ui->setupUi(this);
     //获取当前应用程序所在目录
     m_strDataPath = QApplication::applicationDirPath()+"/data";
+    m_strRecyclePath = QApplication::applicationDirPath() + "/recycle";
     QDir d(m_strDataPath);
     if(!d.exists()){
         d.mkdir(m_strDataPath);
