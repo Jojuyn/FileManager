@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE RCC>
 <RCC version="1.0">
     <qresource prefix="/">
@@ -6,13 +5,6 @@
         <file>wallpapers/Furina-3.png</file>
         <file>wallpapers/Amiya.png</file>
         <file>wallpapers/Cyberpunk.jpg</file>
-    </qresource>
-</RCC>
-=======
-<RCC>
-    <qresource prefix="/">
-        <file>icon.ico</file>
         <file>recyclebin.ico</file>
     </qresource>
 </RCC>
->>>>>>> dev2.1-recycle

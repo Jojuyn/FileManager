@@ -61,10 +61,7 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="2">
-        <widget class="QLineEdit" name="searchBar"/>
-       </item>
-       <item row="2" column="2" rowspan="2">
+       <item row="2" column="1" rowspan="2">
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
           <widget class="QPushButton" name="btn_upload">
@@ -115,23 +112,7 @@
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QPushButton" name="themeBtn">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="text">
-            <string>主题切换</string>
-           </property>
-          </widget>
-         </item>
         </layout>
-       </item>
-       <item row="0" column="3">
-        <widget class="QLineEdit" name="lineEdit"/>
        </item>
       </layout>
      </widget>

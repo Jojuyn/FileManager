@@ -39,10 +39,6 @@ public slots:
     void refreshList();
     void setBackgroundImage(const QString &imagePath);
     void paintEvent(QPaintEvent *event);
-    void showThemeChoose();
-    void GenshinTheme();
-    void ArknightsTheme();
-    void CyberpunkTheme();
     void applyTheme(const QString &theme);
 
 private slots:

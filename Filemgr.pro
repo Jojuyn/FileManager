@@ -20,8 +20,8 @@ HEADERS += \
 
 FORMS += \
     cell_main.ui \
-    settingdialog.ui
-    recyclebinwindow.ui \
+    settingdialog.ui \
+    recyclebinwindow.ui
 
 DESTDIR = $$PWD/bin
 
