@@ -32,5 +32,5 @@ RESOURCES += \
     resources.qrc
 
 RC_FILE = \
-    filemgr.rc
-INCLUDEPATH += $$PWD/thirdparty/json/include
+    #filemgr.rc
+INCLUDEPATH += $$PWD/thirdparty/json/include/
