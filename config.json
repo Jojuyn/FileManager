@@ -1,0 +1,15 @@
+{
+    "Theme": "赛博朋克",
+    "defaultPath": "D:/桌面/qt/CourseDesign/test11",
+    "fileFilterExtension": [
+        "txt",
+        "pdf",
+        "jpg"
+    ],
+    "recentPaths": [
+        "/home/user/documents/project1",
+        "/home/user/downloads",
+        "/home/user/pictures"
+    ],
+    "showHidden": false
+}
