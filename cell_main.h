@@ -2,17 +2,21 @@
 #define CELL_MAIN_H
 
 #include <QMainWindow>
+#include<QDir>
+#include<QtDebug>
+#include<QDateTime>
+#include<QFileDialog>
+#include<QMessageBox>
+#include<QDesktopServices>
+#include <QMainWindow>
 #include <QStandardItemModel>
 #include <QTimer>
-#include <QDir>
-#include <QDebug>
-#include <QDateTime>
-#include <QFileDialog>
-#include <QMessageBox>
-#include <QDesktopServices>
 #include <QClipboard>
-#include "settingdialog.h"
+#include <QInputDialog>
+#include "recyclebinwindow.h"
+#include "ui_recyclebinwindow.h"
 #include "configmanager.h"
+#include "settingdialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -26,12 +30,19 @@ class Cell_Main : public QMainWindow
 
 public:
     Cell_Main(QWidget *parent = nullptr);
+    RecycleBinWindow *recyclebin = NULL;
     ~Cell_Main();
     void updateFile();
 
 public slots:
+    void setupConnections();
+    void refreshList();
     void setBackgroundImage(const QString &imagePath);
     void paintEvent(QPaintEvent *event);
+    void showThemeChoose();
+    void GenshinTheme();
+    void ArknightsTheme();
+    void CyberpunkTheme();
     void applyTheme(const QString &theme);
 
 private slots:
@@ -61,7 +72,8 @@ private:
     QPixmap backgroundImage;
     SettingsDialog *settingsDialog;
     ConfigManager configManager;
-
+    bool moveToRecycleBin(const QFileInfo& fileInfo);
+    QPushButton *refreshBtn;
     QString GenshinStyle =
         // 基础样式
         "QPushButton {"
@@ -146,8 +158,7 @@ private:
         "        stop:0 #3A4D66, stop:1 #5D7080);"
         "}";
 
-
-    QString CyberpunkStyle =         // 基础样式 - 赛博朋克黄黑主题
+    QString CyberpunkStyle =      // 基础样式 - 赛博朋克黄黑主题
         "QPushButton {"
         "    background-color: #0A0A0A;"              // 深灰色背景（接近黑）
         "    border-radius: 7px;"                     // 圆形边角
@@ -191,8 +202,8 @@ private:
         "    border: 1px dashed #FF9A00;"             // 虚线边框
         "}";
 
+
     QString getThemeStyle(const QString &theme) const;
     QString getThemeBackground(const QString &theme) const;
 };
-
 #endif // CELL_MAIN_H
