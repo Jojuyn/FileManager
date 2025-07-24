@@ -32,6 +32,7 @@ Cell_Main::Cell_Main(QWidget *parent)
     });
     //获取当前应用程序所在目录
     m_strDataPath = QApplication::applicationDirPath()+"/data";
+    m_strRecyclePath = QApplication::applicationDirPath()+"/recycle";
 
     QDir d(m_strDataPath);
     if (!d.exists()) {
@@ -215,11 +216,6 @@ void Cell_Main::on_settingBtn_clicked()
     settingsDialog->exec();
 }
 
-void Cell_Main::on_trashBtn_clicked()
-{
-    QDesktopServices::openUrl(QUrl::fromLocalFile(m_strRecyclePath));
-}
-
 void Cell_Main::on_copyBtn_clicked()
 {
     auto index = ui->tableView->currentIndex();
@@ -316,6 +312,17 @@ void Cell_Main::on_renameBtn_clicked()
 
 }
 
+void Cell_Main::refreshList() {
+    qDebug() << "监测到用户点击刷新按钮";
+    // 保存当前几何位置
+    QRect geometry = this->geometry();
+    hide();
+    show();
+    this->setGeometry(geometry);
+    backgroundImage = QPixmap(); // 清空背景图片
+    setStyleSheet("");
+    qDebug() << "已刷新窗口";
+}
 
 void Cell_Main::setBackgroundImage(const QString &imagePath)
 {

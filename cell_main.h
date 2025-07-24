@@ -47,7 +47,6 @@ private slots:
     void on_btn_del_clicked();
     void on_settingBtn_clicked();
     void on_tableView_doubleClicked(const QModelIndex &index);
-    void on_trashBtn_clicked();
     void on_copyBtn_clicked();
     void on_pasteBtn_clicked();
     void on_renameBtn_clicked();
