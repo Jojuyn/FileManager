@@ -40,7 +40,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>浏览存储路径...</string>
+          <string>切换浏览路径</string>
          </property>
         </widget>
        </item>
