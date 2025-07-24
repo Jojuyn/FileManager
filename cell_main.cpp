@@ -25,6 +25,13 @@ Cell_Main::Cell_Main(QWidget *parent)
     , m_model(new QStandardItemModel(this))
 {
     ui->setupUi(this);
+
+    //初始化默认过滤器（如果配置文件未设置）
+    if(configManager.getFileFilter().empty()){
+        configManager.setFileFilter({"txt","md"});
+    }
+
+
     // 初始化数据目录
     this->recyclebin = new RecycleBinWindow;
     connect(ui->trashBtn,&QPushButton::clicked,[=](){
@@ -32,7 +39,7 @@ Cell_Main::Cell_Main(QWidget *parent)
     });
     //获取当前应用程序所在目录
     m_strDataPath = QApplication::applicationDirPath()+"/data";
-
+    m_strRecyclePath = QApplication::applicationDirPath()+"/recycle";
     QDir d(m_strDataPath);
     if (!d.exists()) {
         d.mkdir(m_strDataPath);
@@ -49,6 +56,7 @@ Cell_Main::Cell_Main(QWidget *parent)
     m_model = new QStandardItemModel;
     connect(&m_timer,&QTimer::timeout,this,&Cell_Main::updateFile);
     setupConnections();
+    m_timer.start(500);  //每五百毫秒刷新一次
 
     // 连接设置按钮
     connect(ui->settingBtn, &QPushButton::clicked, this, &Cell_Main::on_settingBtn_clicked);
@@ -77,7 +85,12 @@ void Cell_Main::updateFile()
 {
     QDir d(m_strDataPath);
     QStringList lFilter;
-    lFilter << "*.txt" << " *.md";
+
+    //从ConfigManager获取过滤器并转换为Qt格式
+    for(const auto &ext:configManager.getFileFilter()){
+        lFilter<<QString("*.%1").arg(QString::fromStdString(ext));
+    }
+
     QFileInfoList lFilesInfo = d.entryInfoList(lFilter, QDir::Files);
     QString strFilter = ui->lineEdit->text();
     QString strFlag;
@@ -119,7 +132,19 @@ void Cell_Main::updateFile()
 
 void Cell_Main::on_btn_upload_clicked()
 {
-    auto strPath = QFileDialog::getOpenFileName(nullptr, "文件上传", QDir::homePath(), "*.txt *.md");
+
+    // 生成过滤器字符串（如 "*.txt *.md *.csv"）
+    QString filterStr;
+    for (const auto &ext : configManager.getFileFilter()) {
+        filterStr += QString("*.%1 ").arg(QString::fromStdString(ext));
+    }
+
+    auto strPath = QFileDialog::getOpenFileName(
+        nullptr,
+        "文件上传",
+        QDir::homePath(),
+        filterStr.trimmed()
+        );
     if(strPath.isEmpty()){
         QMessageBox::warning(this,"警告","本次无文件上传");
         return;            //解决了不上传文件重名警告问题
@@ -215,10 +240,6 @@ void Cell_Main::on_settingBtn_clicked()
     settingsDialog->exec();
 }
 
-void Cell_Main::on_trashBtn_clicked()
-{
-    QDesktopServices::openUrl(QUrl::fromLocalFile(m_strRecyclePath));
-}
 
 void Cell_Main::on_copyBtn_clicked()
 {

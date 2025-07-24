@@ -1,7 +1,9 @@
 {
     "Theme": "原神",
     "defaultPath": "",
-    "fileFilterExtension": [],
+    "fileFilterExtension": [
+        "pdf"
+    ],
     "recentPaths": [],
     "showHidden": true
 }
