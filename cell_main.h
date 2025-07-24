@@ -36,7 +36,7 @@ public:
 
 public slots:
     void setupConnections();
-    void refreshList();
+    //void refreshList();
     void setBackgroundImage(const QString &imagePath);
     void paintEvent(QPaintEvent *event);
     void applyTheme(const QString &theme);
@@ -51,6 +51,9 @@ private slots:
     void on_copyBtn_clicked();
     void on_pasteBtn_clicked();
     void on_renameBtn_clicked();
+    void copyWithCtrlC();
+    void showContextMenu(const QPoint &pos); // 显示右键菜单
+    void copySelectedData(); // 复制选中数据到剪贴板
 
 signals:
     void themeChanged(const QString &theme);

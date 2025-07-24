@@ -16,6 +16,7 @@
 #include <QMessageBox>
 #include <QDesktopServices>
 #include <QPainter>
+#include <QShortcut>
 #include<QPushButton>
 
 Cell_Main::Cell_Main(QWidget *parent)
@@ -32,6 +33,7 @@ Cell_Main::Cell_Main(QWidget *parent)
     });
     //获取当前应用程序所在目录
     m_strDataPath = QApplication::applicationDirPath()+"/data";
+    m_strRecyclePath= QApplication::applicationDirPath()+"/recycle";
 
     QDir d(m_strDataPath);
     if (!d.exists()) {
@@ -49,6 +51,7 @@ Cell_Main::Cell_Main(QWidget *parent)
     m_model = new QStandardItemModel;
     connect(&m_timer,&QTimer::timeout,this,&Cell_Main::updateFile);
     setupConnections();
+    m_timer.start(500);
 
     // 连接设置按钮
     connect(ui->settingBtn, &QPushButton::clicked, this, &Cell_Main::on_settingBtn_clicked);
@@ -57,6 +60,13 @@ Cell_Main::Cell_Main(QWidget *parent)
 
     // 应用初始主题
     applyTheme(QString::fromStdString(configManager.getTheme()));
+
+    QShortcut *copyShortcut = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_C), this);
+    connect(copyShortcut, &QShortcut::activated, this, &Cell_Main::copyWithCtrlC);
+
+    ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(ui->tableView, &QTableView::customContextMenuRequested,
+            this, &Cell_Main::showContextMenu);
 
     updateFile();
 }
@@ -115,6 +125,98 @@ void Cell_Main::updateFile()
     m_model->setHorizontalHeaderLabels(lHeaders);
     ui->tableView->setModel(m_model);
 
+}
+
+//显示右键菜单
+void Cell_Main::showContextMenu(const QPoint &pos)
+{
+    // 获取选中的索引（判断是否有选中内容）
+    QItemSelectionModel *selectionModel = ui->tableView->selectionModel();
+    if (!selectionModel->hasSelection()) return;
+
+    // 创建右键菜单
+    QMenu menu(this);
+    QAction *copyAction = menu.addAction("复制");
+    // 绑定复制动作到槽函数
+    connect(copyAction, &QAction::triggered, this, &Cell_Main::copySelectedData);
+    // 在鼠标位置显示菜单
+    menu.exec(ui->tableView->mapToGlobal(pos));
+}
+
+//复制选中数据到剪贴板
+void Cell_Main::copySelectedData()
+{
+    QItemSelectionModel *selectionModel = ui->tableView->selectionModel();
+    QModelIndexList selectedIndexes = selectionModel->selectedIndexes();
+    if (selectedIndexes.isEmpty()) return;
+
+    // 排序选中的索引（按行→列顺序）
+    std::sort(selectedIndexes.begin(), selectedIndexes.end(),
+              [](const QModelIndex &a, const QModelIndex &b) {
+                  if (a.row() != b.row()) return a.row() < b.row();
+                  return a.column() < b.column();
+              });
+
+    // 拼接选中的数据（行内用制表符分隔，行之间用换行分隔）
+    QString clipboardText;
+    int currentRow = -1;
+    foreach (const QModelIndex &index, selectedIndexes) {
+        if (index.row() != currentRow) {
+            // 新行（除第一行外添加换行）
+            if (currentRow != -1) clipboardText += "\n";
+            currentRow = index.row();
+        } else {
+            // 同一行的列，用制表符分隔
+            clipboardText += "\t";
+        }
+        clipboardText += index.data().toString();
+    }
+
+    // 复制到系统剪贴板
+    QClipboard *clipboard = QApplication::clipboard();
+    clipboard->setText(clipboardText);
+}
+//处理Control+C复制选中内容
+void Cell_Main::copyWithCtrlC()
+{
+    QItemSelectionModel *selectionModel = ui->tableView->selectionModel();
+    if (!selectionModel->hasSelection()) {
+        return; // 无选中内容则不操作
+    }
+
+    // 获取所有选中的单元格索引
+    QModelIndexList selectedIndexes = selectionModel->selectedIndexes();
+    if (selectedIndexes.isEmpty()) {
+        return;
+    }
+
+    // 按行→列排序，确保复制顺序正确
+    std::sort(selectedIndexes.begin(), selectedIndexes.end(),
+              [](const QModelIndex &a, const QModelIndex &b) {
+                  if (a.row() != b.row()) return a.row() < b.row();
+                  return a.column() < b.column();
+              });
+
+    // 拼接选中内容（行内用制表符分隔，行之间用换行分隔）
+    QString clipboardText;
+    int currentRow = -1; // 记录当前行，用于换行
+    foreach (const QModelIndex &index, selectedIndexes) {
+        if (index.row() != currentRow) {
+            // 新行：如果不是第一行，先加换行
+            if (currentRow != -1) {
+                clipboardText += "\n";
+            }
+            currentRow = index.row();
+        } else {
+            // 同一行的不同列：加制表符分隔
+            clipboardText += "\t";
+        }
+        clipboardText += index.data().toString();
+    }
+
+    // 复制到系统剪贴板
+    QClipboard *clipboard = QApplication::clipboard();
+    clipboard->setText(clipboardText);
 }
 
 void Cell_Main::on_btn_upload_clicked()
