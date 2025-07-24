@@ -1,0 +1,99 @@
+22:04:30 | 0 >> GPU Caps Viewer 1.36.2.0 startup...
+22:04:30 | 1 >> [SGX] - SGX 0.3.0.0 initialization in progress...
+22:04:30 | 2 >> [SGX] - (C)2015-2017 Geeks3D - www.geeks3d.com/geexlab/
+22:04:30 | 3 >> [SGX] - Plugin search path: D:\Tool\kaying_tools\program\graphics\GPU_Caps_Viewer\plugins/
+22:04:30 | 4 >> [SGX] - SGX initialized OK.
+22:04:30 | 5 >> [SGX] - Plugin search path: D:\Tool\kaying_tools\program\graphics\GPU_Caps_Viewer\gxcplugins/
+22:04:30 | 6 >> [SGX] - [Plugin manager] unable to load the plugin: D:\Tool\kaying_tools\program\graphics\GPU_Caps_Viewer\plugins/plugin_gxc_gpumon_x32.dll
+22:04:30 | 7 >> [SGX] - [GpuMonitor] GPU monitoring plugin for NVIDIA and AMD GPUs
+22:04:30 | 8 >> [SGX] - [GpuMonitor] Operating system detected: Windows 10 build 22631
+22:04:30 | 9 >> [SGX] - [GpuMonitor] Num GPUs found: 1
+22:04:30 | 10 >> [SGX] - [GpuMonitor] GPU0 - NVIDIA GeForce RTX 4080 Laptop GPU
+22:04:30 | 11 >> [SGX] - [GpuMonitor] GPU0 - PCI codes: 0x10DE-0x27A0
+22:04:30 | 12 >> [SGX] - [GpuMonitor] GPU0 - BIOS: 95.04.63.00.03
+22:04:30 | 13 >> [SGX] - [GpuMonitor] GPU0 - core temperature: 45 degC
+22:04:30 | 14 >> [SGX] - Plugin plugin_gxc_gpumon_x32.dll successfully loaded
+22:04:30 | 15 >> - DEV 0 - DeviceID: PCI\VEN_10DE&DEV_27A0&SUBSYS_14241462&REV_A1
+22:04:30 | 16 >> - DEV 0 - DeviceName: \\.\DISPLAY1
+22:04:30 | 17 >> - DEV 0 - DeviceString: NVIDIA GeForce RTX 4080 Laptop GPU
+22:04:30 | 18 >> - DEV 0 - DeviceKey: \Registry\Machine\System\CurrentControlSet\Control\Video\{14F127F4-795E-11EF-9A3A-F645FA6C3EBC}\0000
+22:04:30 | 19 >> - DEV 1 - DeviceID: PCI\VEN_10DE&DEV_27A0&SUBSYS_14241462&REV_A1
+22:04:30 | 20 >> - DEV 1 - DeviceName: \\.\DISPLAY2
+22:04:30 | 21 >> - DEV 1 - DeviceString: NVIDIA GeForce RTX 4080 Laptop GPU
+22:04:30 | 22 >> - DEV 1 - DeviceKey: \Registry\Machine\System\CurrentControlSet\Control\Video\{14F127F4-795E-11EF-9A3A-F645FA6C3EBC}\0001
+22:04:30 | 23 >> - DEV 2 - DeviceID: PCI\VEN_10DE&DEV_27A0&SUBSYS_14241462&REV_A1
+22:04:30 | 24 >> - DEV 2 - DeviceName: \\.\DISPLAY3
+22:04:30 | 25 >> - DEV 2 - DeviceString: NVIDIA GeForce RTX 4080 Laptop GPU
+22:04:30 | 26 >> - DEV 2 - DeviceKey: \Registry\Machine\System\CurrentControlSet\Control\Video\{14F127F4-795E-11EF-9A3A-F645FA6C3EBC}\0002
+22:04:30 | 27 >> - DEV 3 - DeviceID: PCI\VEN_10DE&DEV_27A0&SUBSYS_14241462&REV_A1
+22:04:30 | 28 >> - DEV 3 - DeviceName: \\.\DISPLAY4
+22:04:30 | 29 >> - DEV 3 - DeviceString: NVIDIA GeForce RTX 4080 Laptop GPU
+22:04:30 | 30 >> - DEV 3 - DeviceKey: \Registry\Machine\System\CurrentControlSet\Control\Video\{14F127F4-795E-11EF-9A3A-F645FA6C3EBC}\0003
+22:04:30 | 31 >> Found 2 OpenCL-capable platform.
+22:04:30 | 32 >> Found 1 OpenCL-capable devices for platform NVIDIA CUDA.
+22:04:30 | 33 >> Found 2 OpenCL-capable devices for platform OpenCLOn12.
+22:04:30 | 34 >> Vulkan - instance extensions: 19
+22:04:30 | 35 >> Vulkan - 1/ VK_KHR_device_group_creation (spec version: 1)
+22:04:30 | 36 >> Vulkan - 2/ VK_KHR_get_physical_device_properties2 (spec version: 2)
+22:04:30 | 37 >> Vulkan - 3/ VK_KHR_get_surface_capabilities2 (spec version: 1)
+22:04:30 | 38 >> Vulkan - 4/ VK_KHR_surface (spec version: 25)
+22:04:30 | 39 >> Vulkan - 5/ VK_KHR_win32_surface (spec version: 6)
+22:04:30 | 40 >> Vulkan - 6/ VK_EXT_debug_report (spec version: 10)
+22:04:30 | 41 >> Vulkan - 7/ VK_EXT_debug_utils (spec version: 2)
+22:04:30 | 42 >> Vulkan - 8/ VK_KHR_display (spec version: 23)
+22:04:30 | 43 >> Vulkan - 9/ VK_KHR_external_fence_capabilities (spec version: 1)
+22:04:30 | 44 >> Vulkan - 10/ VK_KHR_external_memory_capabilities (spec version: 1)
+22:04:30 | 45 >> Vulkan - 11/ VK_KHR_external_semaphore_capabilities (spec version: 1)
+22:04:30 | 46 >> Vulkan - 12/ VK_KHR_get_display_properties2 (spec version: 1)
+22:04:30 | 47 >> Vulkan - 13/ VK_KHR_surface_protected_capabilities (spec version: 1)
+22:04:30 | 48 >> Vulkan - 14/ VK_EXT_direct_mode_display (spec version: 1)
+22:04:30 | 49 >> Vulkan - 15/ VK_EXT_surface_maintenance1 (spec version: 1)
+22:04:30 | 50 >> Vulkan - 16/ VK_EXT_swapchain_colorspace (spec version: 4)
+22:04:30 | 51 >> Vulkan - 17/ VK_NV_external_memory_capabilities (spec version: 1)
+22:04:30 | 52 >> Vulkan - 18/ VK_KHR_portability_enumeration (spec version: 1)
+22:04:30 | 53 >> Vulkan - 19/ VK_LUNARG_direct_driver_loading (spec version: 1)
+22:04:30 | 54 >> Vulkan - # devices: 3
+22:04:30 | 55 >> Vulkan - [ Device 1 ]--------------------------------------
+22:04:30 | 56 >> Vulkan -   device name: NVIDIA GeForce RTX 4080 Laptop GPU
+22:04:30 | 57 >> Vulkan -   deviceID: 10DE-27A0
+22:04:30 | 58 >> Vulkan -   driver version: 2312503296
+22:04:30 | 59 >> Vulkan -   API version: 1.3.277
+22:04:30 | 60 >> Vulkan -   NVIDIA driver version: 551.88
+22:04:30 | 61 >> Vulkan -   device type: VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU
+22:04:30 | 62 >> Vulkan - [ Device 2 ]--------------------------------------
+22:04:30 | 63 >> Vulkan -   device name: Microsoft Direct3D12 (NVIDIA GeForce RTX 4080 Laptop GPU)
+22:04:30 | 64 >> Vulkan -   deviceID: 10DE-27A0
+22:04:30 | 65 >> Vulkan -   driver version: 100671587
+22:04:30 | 66 >> Vulkan -   API version: 1.2.295
+22:04:30 | 67 >> Vulkan -   NVIDIA driver version: 24.0
+22:04:30 | 68 >> Vulkan -   device type: VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU
+22:04:30 | 69 >> Vulkan - [ Device 3 ]--------------------------------------
+22:04:30 | 70 >> Vulkan -   device name: Microsoft Direct3D12 (Microsoft Basic Render Driver)
+22:04:30 | 71 >> Vulkan -   deviceID: 1414-  8C
+22:04:30 | 72 >> Vulkan -   driver version: 100671587
+22:04:30 | 73 >> Vulkan -   API version: 1.2.295
+22:04:30 | 74 >> Vulkan -   device type: VK_PHYSICAL_DEVICE_TYPE_CPU
+22:04:31 | 75 >> - Device ID string (0): PCI\VEN_10DE&DEV_27A0&SUBSYS_14241462&REV_A1
+22:04:31 | 76 >> - Display device string (0): NVIDIA GeForce RTX 4080 Laptop GPU
+22:04:31 | 77 >> Detected graphics cards and GPUs:
+22:04:31 | 78 >> - GPU 1: NVIDIA GeForce RTX 4080 Laptop GPU
+22:04:31 | 79 >> ----> DeviceID: 10DE-27A0 - SubdeviceID: 1462-1424 - RevisionID: A1
+22:04:31 | 80 >> ----> Config: cores:7424, TMUs:0, ROPs:0
+22:04:31 | 81 >> ----> TDP: 0W
+22:04:31 | 82 >> ----> GPU temperature: 46.000°C
+22:04:31 | 83 >> ----> Graphics driver: R551.88
+22:04:31 | 84 >> ----> GPU base clock: 795 MHz, boost clock: 1350 MHz, memory: 9001 Mhz
+22:04:31 | 85 >> ----> PState 0, GPU clock 825 MHz, memory clock: 9001 MHz, VDDC: 0.000V:
+22:04:31 | 86 >> ----> PState 2, GPU clock 825 MHz, memory clock: 8001 MHz, VDDC: 0.000V:
+22:04:31 | 87 >> ----> PState 3, GPU clock 825 MHz, memory clock: 7001 MHz, VDDC: 0.000V:
+22:04:31 | 88 >> ----> PState 4, GPU clock 825 MHz, memory clock: 6001 MHz, VDDC: 0.000V:
+22:04:31 | 89 >> ----> PState 5, GPU clock 825 MHz, memory clock: 810 MHz, VDDC: 0.000V:
+22:04:31 | 90 >> ----> PState 8, GPU clock 405 MHz, memory clock: 405 MHz, VDDC: 0.000V:
+22:04:31 | 91 >> ----> Fan speed: -1% / -1 RPM
+22:04:32 | 92 >> Found 1 CUDA-capable devices.
+22:04:32 | 93 >> GPU Caps Viewer startup ok.
+22:04:32 | 94 >> Checking for new version...
+22:04:34 | 95 >> A new version is available online: 1.63.0.0
+22:05:23 | 96 >> [SGX] - Plugin GpuMonitor unloaded.
+22:05:23 | 97 >> GPU Caps Viewer 1.36.2.0 shutdown...
+22:05:23 | 98 >> GPU Caps Viewer shutdown ok.

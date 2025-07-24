@@ -1,6 +1,6 @@
 {
-    "Theme": "",
-    "defaultPath": "",
+    "Theme": "默认",
+    "defaultPath": "D:/Workspace/TuringNinth/FileManager/bin/data",
     "fileFilterExtension": [],
     "recentPaths": [],
     "showHidden": true
