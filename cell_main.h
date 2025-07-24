@@ -14,7 +14,6 @@
 #include <QClipboard>
 #include <QInputDialog>
 #include "recyclebinwindow.h"
-#include "ui_recyclebinwindow.h"
 #include "configmanager.h"
 #include "settingdialog.h"
 
@@ -36,7 +35,7 @@ public:
 
 public slots:
     void setupConnections();
-    void refreshList();
+    //void refreshList();
     void setBackgroundImage(const QString &imagePath);
     void paintEvent(QPaintEvent *event);
     void applyTheme(const QString &theme);

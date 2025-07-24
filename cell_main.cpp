@@ -21,8 +21,8 @@
 Cell_Main::Cell_Main(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Cell_Main)
-    , settingsDialog(new SettingsDialog(this))
     , m_model(new QStandardItemModel(this))
+    , settingsDialog(new SettingsDialog(this))
 {
     ui->setupUi(this);
     // 初始化数据目录
@@ -49,6 +49,7 @@ Cell_Main::Cell_Main(QWidget *parent)
     m_model = new QStandardItemModel;
     connect(&m_timer,&QTimer::timeout,this,&Cell_Main::updateFile);
     setupConnections();
+    m_timer.start(500);
 
     // 连接设置按钮
     connect(ui->settingBtn, &QPushButton::clicked, this, &Cell_Main::on_settingBtn_clicked);
@@ -212,7 +213,7 @@ void Cell_Main::on_settingBtn_clicked()
 {
     settingsDialog->setConfigManager(&configManager);
     settingsDialog->loadSettings();
-    settingsDialog->exec();
+    settingsDialog->show();
 }
 
 void Cell_Main::on_trashBtn_clicked()

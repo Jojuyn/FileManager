@@ -9,8 +9,10 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     , configManager(nullptr)
 {
     ui->setupUi(this);
-
+    this->setWindowTitle("设置");
+    setWindowIcon(QIcon(":/settings1.ico"));
     // 初始化主题下拉菜单
+    ui->themeComboBox->addItem("默认", "默认");
     ui->themeComboBox->addItem("原神", "原神");
     ui->themeComboBox->addItem("明日方舟", "明日方舟");
     ui->themeComboBox->addItem("赛博朋克", "赛博朋克");
