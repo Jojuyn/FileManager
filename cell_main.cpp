@@ -21,8 +21,8 @@
 Cell_Main::Cell_Main(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Cell_Main)
-    , settingsDialog(new SettingsDialog(this))
     , m_model(new QStandardItemModel(this))
+    , settingsDialog(new SettingsDialog(this))
 {
     ui->setupUi(this);
 
@@ -40,6 +40,7 @@ Cell_Main::Cell_Main(QWidget *parent)
     //获取当前应用程序所在目录
     m_strDataPath = QApplication::applicationDirPath()+"/data";
     m_strRecyclePath = QApplication::applicationDirPath()+"/recycle";
+
     QDir d(m_strDataPath);
     if (!d.exists()) {
         d.mkdir(m_strDataPath);
@@ -237,7 +238,7 @@ void Cell_Main::on_settingBtn_clicked()
 {
     settingsDialog->setConfigManager(&configManager);
     settingsDialog->loadSettings();
-    settingsDialog->exec();
+    settingsDialog->show();
 }
 
 

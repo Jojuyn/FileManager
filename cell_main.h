@@ -14,7 +14,6 @@
 #include <QClipboard>
 #include <QInputDialog>
 #include "recyclebinwindow.h"
-#include "ui_recyclebinwindow.h"
 #include "configmanager.h"
 #include "settingdialog.h"
 

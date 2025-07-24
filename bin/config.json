@@ -1,8 +1,11 @@
 {
     "Theme": "原神",
-    "defaultPath": "",
+    "defaultPath": "D:/Workspace/TuringNinth/FileManager/bin/data",
     "fileFilterExtension": [
-        "pdf"
+        "txt",
+        "pdf",
+        "jpg",
+        "cpp"
     ],
     "recentPaths": [],
     "showHidden": true
