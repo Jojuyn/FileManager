@@ -22,10 +22,17 @@
 Cell_Main::Cell_Main(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Cell_Main)
-    , settingsDialog(new SettingsDialog(this))
     , m_model(new QStandardItemModel(this))
+    , settingsDialog(new SettingsDialog(this))
 {
     ui->setupUi(this);
+
+    //初始化默认过滤器（如果配置文件未设置）
+    if(configManager.getFileFilter().empty()){
+        configManager.setFileFilter({"txt","md"});
+    }
+
+
     // 初始化数据目录
     this->recyclebin = new RecycleBinWindow;
     connect(ui->trashBtn,&QPushButton::clicked,[=](){
@@ -87,7 +94,12 @@ void Cell_Main::updateFile()
 {
     QDir d(m_strDataPath);
     QStringList lFilter;
-    lFilter << "*.txt" << " *.md";
+
+    //从ConfigManager获取过滤器并转换为Qt格式
+    for(const auto &ext:configManager.getFileFilter()){
+        lFilter<<QString("*.%1").arg(QString::fromStdString(ext));
+    }
+
     QFileInfoList lFilesInfo = d.entryInfoList(lFilter, QDir::Files);
     QString strFilter = ui->lineEdit->text();
     QString strFlag;
@@ -221,7 +233,19 @@ void Cell_Main::copyWithCtrlC()
 
 void Cell_Main::on_btn_upload_clicked()
 {
-    auto strPath = QFileDialog::getOpenFileName(nullptr, "文件上传", QDir::homePath(), "*.txt *.md");
+
+    // 生成过滤器字符串（如 "*.txt *.md *.csv"）
+    QString filterStr;
+    for (const auto &ext : configManager.getFileFilter()) {
+        filterStr += QString("*.%1 ").arg(QString::fromStdString(ext));
+    }
+
+    auto strPath = QFileDialog::getOpenFileName(
+        nullptr,
+        "文件上传",
+        QDir::homePath(),
+        filterStr.trimmed()
+        );
     if(strPath.isEmpty()){
         QMessageBox::warning(this,"警告","本次无文件上传");
         return;            //解决了不上传文件重名警告问题
@@ -314,13 +338,9 @@ void Cell_Main::on_settingBtn_clicked()
 {
     settingsDialog->setConfigManager(&configManager);
     settingsDialog->loadSettings();
-    settingsDialog->exec();
+    settingsDialog->show();
 }
 
-void Cell_Main::on_trashBtn_clicked()
-{
-    QDesktopServices::openUrl(QUrl::fromLocalFile(m_strRecyclePath));
-}
 
 void Cell_Main::on_copyBtn_clicked()
 {

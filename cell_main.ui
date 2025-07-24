@@ -40,7 +40,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>打开文件所在文件夹</string>
+          <string>浏览存储路径...</string>
          </property>
         </widget>
        </item>
@@ -125,7 +125,7 @@
      <x>0</x>
      <y>0</y>
      <width>839</width>
-     <height>17</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

@@ -8,7 +8,9 @@ RecycleBinWindow::RecycleBinWindow(QWidget *parent)
     ui->setupUi(this);
     this->setWindowTitle("回收站");
     //获取当前应用程序所在目录
+    m_strRecyclePath = QApplication::applicationDirPath()+"/data";
     m_strRecyclePath = QApplication::applicationDirPath()+"/recycle";
+
     QDir d(m_strRecyclePath);
     if(!d.exists()){
         d.mkdir(m_strRecyclePath);
@@ -28,7 +30,6 @@ void RecycleBinWindow::updateFile(){
 
     QDir d(m_strRecyclePath);
     QStringList lFiter;
-    lFiter<<"*.txt"<<"*.md";
     QFileInfoList lFilesInfo = d.entryInfoList(lFiter,QDir::Files);
     QString strFilter = ui->lineEdit->text();
     QString strFlag;
