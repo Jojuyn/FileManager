@@ -33,7 +33,7 @@ Cell_Main::Cell_Main(QWidget *parent)
     });
     //获取当前应用程序所在目录
     m_strDataPath = QApplication::applicationDirPath()+"/data";
-    m_strRecyclePath= QApplication::applicationDirPath()+"/recycle";
+    m_strRecyclePath=QApplication::applicationDirPath()+"/recycle";
 
     QDir d(m_strDataPath);
     if (!d.exists()) {
@@ -136,7 +136,7 @@ void Cell_Main::showContextMenu(const QPoint &pos)
 
     // 创建右键菜单
     QMenu menu(this);
-    QAction *copyAction = menu.addAction("复制");
+    QAction *copyAction = menu.addAction("复制文件信息(Ctrl/Cmd+C)");
     // 绑定复制动作到槽函数
     connect(copyAction, &QAction::triggered, this, &Cell_Main::copySelectedData);
     // 在鼠标位置显示菜单
