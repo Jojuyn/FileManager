@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="/">
+    <file>wallpapers/Furina-3.png</file>
+    <file>wallpapers/Amiya.png</file>
+    <file>wallpapers/Cyberpunk.jpg</file>
+  </qresource>
+</RCC>
